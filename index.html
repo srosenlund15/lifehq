@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Life HQ — One Notion Template. Every Area of Life.</title>
-  <meta name="description" content="Stop juggling 6 apps and a dozen sticky notes. Life HQ is a single Notion template that replaces all of it — built for faith-driven ministry and marketplace entrepreneurs." />
+  <meta name="description" content="Stop juggling 6 apps and a dozen sticky notes. Life HQ is a single Notion template that replaces all of it — built for ambitious leaders and entrepreneurs." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
   <style>
@@ -33,7 +33,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
@@ -42,10 +41,7 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo {
-      font-size: 18px; font-weight: 800; letter-spacing: -0.5px;
-      color: var(--white);
-    }
+    .nav-logo { font-size: 18px; font-weight: 800; letter-spacing: -0.5px; color: var(--white); }
     .nav-logo span { color: var(--gold); }
     .nav-cta {
       display: inline-flex; align-items: center; gap: 8px;
@@ -56,7 +52,6 @@
     }
     .nav-cta:hover { background: var(--gold-light); }
 
-    /* ── HERO ── */
     .hero {
       min-height: 100vh;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -85,10 +80,7 @@
       font-weight: 900; line-height: 1.05; letter-spacing: -2px;
       max-width: 900px; margin-bottom: 24px;
     }
-    .hero h1 em {
-      font-style: italic; font-family: 'Playfair Display', serif;
-      color: var(--gold);
-    }
+    .hero h1 em { font-style: italic; font-family: 'Playfair Display', serif; color: var(--gold); }
     .hero-sub {
       font-size: clamp(16px, 2.5vw, 20px);
       color: var(--muted); max-width: 600px;
@@ -117,315 +109,122 @@
       transition: all 0.2s;
     }
     .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
-
-    .hero-social-proof {
-      display: flex; align-items: center; gap: 12px;
-      color: var(--muted); font-size: 13px;
-    }
+    .hero-social-proof { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 13px; }
     .stars { color: var(--gold); letter-spacing: 2px; }
 
-    /* ── DASHBOARD MOCKUP ── */
-    .dashboard-wrap {
-      width: 100%; max-width: 900px; margin: 0 auto;
-      padding: 0 24px 80px;
-    }
+    .dashboard-wrap { width: 100%; max-width: 900px; margin: 0 auto; padding: 0 24px 80px; }
     .dashboard-frame {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
+      border-radius: 16px; overflow: hidden;
       box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
     }
     .frame-bar {
       display: flex; align-items: center; gap: 8px;
-      padding: 14px 20px;
-      background: var(--card);
-      border-bottom: 1px solid var(--border);
+      padding: 14px 20px; background: var(--card); border-bottom: 1px solid var(--border);
     }
     .dot { width: 10px; height: 10px; border-radius: 50%; }
-    .dot-r { background: #FF5F57; }
-    .dot-y { background: #FEBC2E; }
-    .dot-g { background: #28C840; }
-    .frame-title {
-      flex: 1; text-align: center;
-      font-size: 12px; color: var(--muted); font-weight: 500;
-    }
-    .dashboard-grid {
-      display: grid; grid-template-columns: 220px 1fr;
-      min-height: 360px;
-    }
-    .sidebar {
-      background: var(--card);
-      border-right: 1px solid var(--border);
-      padding: 20px 0;
-    }
-    .sidebar-section {
-      font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
-      text-transform: uppercase; color: var(--muted);
-      padding: 0 16px 8px;
-    }
-    .sidebar-item {
-      display: flex; align-items: center; gap: 10px;
-      padding: 8px 16px; font-size: 13px; cursor: default;
-      transition: background 0.15s;
-    }
-    .sidebar-item:hover { background: rgba(255,255,255,0.04); }
+    .dot-r { background: #FF5F57; } .dot-y { background: #FEBC2E; } .dot-g { background: #28C840; }
+    .frame-title { flex: 1; text-align: center; font-size: 12px; color: var(--muted); font-weight: 500; }
+    .dashboard-grid { display: grid; grid-template-columns: 220px 1fr; min-height: 360px; }
+    .sidebar { background: var(--card); border-right: 1px solid var(--border); padding: 20px 0; }
+    .sidebar-section { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); padding: 0 16px 8px; }
+    .sidebar-item { display: flex; align-items: center; gap: 10px; padding: 8px 16px; font-size: 13px; cursor: default; }
     .sidebar-item.active { background: var(--gold-dim); color: var(--gold); }
     .sidebar-item .icon { font-size: 15px; width: 20px; text-align: center; }
     .main-content { padding: 28px; }
     .main-title { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
     .main-sub { font-size: 12px; color: var(--muted); margin-bottom: 24px; }
-    .stats-row {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
-      margin-bottom: 24px;
-    }
-    .stat-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 14px;
-    }
+    .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+    .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; }
     .stat-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
     .stat-value { font-size: 22px; font-weight: 800; }
     .stat-value.gold { color: var(--gold); }
     .quick-nav { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .nav-tile {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 12px 14px;
-      font-size: 12px; display: flex; align-items: center; gap: 8px;
-      cursor: default;
-    }
-    .nav-tile:hover { border-color: var(--gold); }
+    .nav-tile { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; font-size: 12px; display: flex; align-items: center; gap: 8px; }
 
-    /* ── SECTION HEADERS ── */
     section { padding: 100px 24px; }
     .section-inner { max-width: 1100px; margin: 0 auto; }
-    .section-eyebrow {
-      font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
-      text-transform: uppercase; color: var(--gold);
-      margin-bottom: 16px;
-    }
-    .section-title {
-      font-size: clamp(32px, 5vw, 52px);
-      font-weight: 900; line-height: 1.1; letter-spacing: -1.5px;
-      margin-bottom: 20px;
-    }
-    .section-title em {
-      font-style: italic; font-family: 'Playfair Display', serif;
-      color: var(--gold);
-    }
-    .section-desc {
-      font-size: 18px; color: var(--muted); max-width: 560px; line-height: 1.7;
-    }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .section-title { font-size: clamp(32px, 5vw, 52px); font-weight: 900; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 20px; }
+    .section-title em { font-style: italic; font-family: 'Playfair Display', serif; color: var(--gold); }
+    .section-desc { font-size: 18px; color: var(--muted); max-width: 560px; line-height: 1.7; }
 
-    /* ── PROBLEM ── */
     .problem-section { background: var(--surface); }
-    .problem-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
-      align-items: center; margin-top: 60px;
-    }
+    .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-top: 60px; }
     .problem-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
-    .problem-list li {
-      display: flex; align-items: flex-start; gap: 14px;
-      font-size: 16px; line-height: 1.5;
-    }
-    .problem-list li .x {
-      color: #FF5F57; font-weight: 700; font-size: 18px;
-      flex-shrink: 0; margin-top: 1px;
-    }
-    .problem-list li .check {
-      color: var(--gold); font-weight: 700; font-size: 18px;
-      flex-shrink: 0; margin-top: 1px;
-    }
-    .problem-divider {
-      display: flex; align-items: center; justify-content: center;
-      font-size: 32px; opacity: 0.3;
-    }
+    .problem-list li { display: flex; align-items: flex-start; gap: 14px; font-size: 16px; line-height: 1.5; }
+    .problem-list li .x { color: #FF5F57; font-weight: 700; font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .problem-list li .check { color: var(--gold); font-weight: 700; font-size: 18px; flex-shrink: 0; margin-top: 1px; }
 
-    /* ── FEATURES ── */
-    .features-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px; margin-top: 60px;
-    }
-    .feature-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 24px;
-      transition: border-color 0.2s, transform 0.2s;
-    }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-top: 60px; }
+    .feature-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; transition: border-color 0.2s, transform 0.2s; }
     .feature-card:hover { border-color: var(--gold); transform: translateY(-2px); }
     .feature-icon { font-size: 28px; margin-bottom: 14px; }
     .feature-name { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
     .feature-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
 
-    /* ── WHO IT'S FOR ── */
     .for-section { background: var(--surface); }
-    .for-cards {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 24px; margin-top: 60px;
-    }
-    .for-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 32px;
-    }
+    .for-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; margin-top: 60px; }
+    .for-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; }
     .for-card-icon { font-size: 36px; margin-bottom: 16px; }
     .for-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 10px; }
     .for-card p { font-size: 15px; color: var(--muted); line-height: 1.7; }
 
-    /* ── DIFFERENTIATOR ── */
-    .diff-section {
-      background: linear-gradient(135deg, #0C0C0C 0%, #1a1400 50%, #0C0C0C 100%);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .diff-inner {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
-      align-items: center;
-    }
+    .diff-section { background: linear-gradient(135deg, #0C0C0C 0%, #1a1400 50%, #0C0C0C 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .diff-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .diff-steps { display: flex; flex-direction: column; gap: 24px; margin-top: 32px; }
     .diff-step { display: flex; gap: 18px; align-items: flex-start; }
-    .step-num {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.4);
-      color: var(--gold); font-size: 13px; font-weight: 800;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
+    .step-num { width: 36px; height: 36px; border-radius: 50%; background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.4); color: var(--gold); font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .step-text h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
     .step-text p { font-size: 14px; color: var(--muted); line-height: 1.6; }
-    .quote-block {
-      background: var(--card);
-      border: 1px solid rgba(201,168,76,0.2);
-      border-left: 4px solid var(--gold);
-      border-radius: var(--radius); padding: 32px;
-    }
-    .quote-text {
-      font-size: 20px; font-style: italic;
-      font-family: 'Playfair Display', serif;
-      line-height: 1.5; margin-bottom: 16px;
-      color: var(--white);
-    }
+    .quote-block { background: var(--card); border: 1px solid rgba(201,168,76,0.2); border-left: 4px solid var(--gold); border-radius: var(--radius); padding: 32px; }
+    .quote-text { font-size: 20px; font-style: italic; font-family: 'Playfair Display', serif; line-height: 1.5; margin-bottom: 16px; }
     .quote-attr { font-size: 13px; color: var(--gold); font-weight: 600; }
 
-    /* ── EMAIL CAPTURE ── */
-    .email-section {
-      background: var(--surface);
-      text-align: center;
-    }
+    .email-section { background: var(--surface); text-align: center; }
     .email-inner { max-width: 620px; margin: 0 auto; }
-    .email-tag {
-      display: inline-block;
-      background: var(--gold-dim);
-      border: 1px solid rgba(201,168,76,0.3);
-      color: var(--gold); font-size: 12px; font-weight: 700;
-      letter-spacing: 1px; text-transform: uppercase;
-      padding: 5px 14px; border-radius: 100px; margin-bottom: 24px;
-    }
-    .email-form {
-      display: flex; gap: 12px; flex-wrap: wrap;
-      justify-content: center; margin-top: 32px;
-    }
-    .email-form input {
-      flex: 1; min-width: 260px;
-      background: var(--card); border: 1px solid var(--border);
-      color: var(--white); font-size: 15px;
-      padding: 14px 20px; border-radius: 100px;
-      outline: none; transition: border-color 0.2s;
-    }
+    .email-tag { display: inline-block; background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.3); color: var(--gold); font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 24px; }
+    .email-form { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 32px; }
+    .email-form input { flex: 1; min-width: 260px; background: var(--card); border: 1px solid var(--border); color: var(--white); font-size: 15px; padding: 14px 20px; border-radius: 100px; outline: none; transition: border-color 0.2s; }
     .email-form input::placeholder { color: var(--muted); }
     .email-form input:focus { border-color: var(--gold); }
-    .email-form button {
-      background: var(--gold); color: var(--black);
-      font-size: 15px; font-weight: 700;
-      padding: 14px 28px; border-radius: 100px;
-      border: none; cursor: pointer; transition: all 0.2s;
-    }
+    .email-form button { background: var(--gold); color: var(--black); font-size: 15px; font-weight: 700; padding: 14px 28px; border-radius: 100px; border: none; cursor: pointer; transition: all 0.2s; }
     .email-form button:hover { background: var(--gold-light); }
     .email-note { font-size: 13px; color: var(--muted); margin-top: 14px; }
 
-    /* ── PRICING ── */
-    .pricing-cards {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 24px; margin-top: 60px; max-width: 780px; margin-left: auto; margin-right: auto;
-    }
-    .pricing-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px; padding: 36px;
-      transition: border-color 0.2s;
-    }
-    .pricing-card.featured {
-      border-color: var(--gold);
-      box-shadow: 0 0 60px rgba(201,168,76,0.1);
-    }
-    .pricing-badge {
-      display: inline-block;
-      background: var(--gold); color: var(--black);
-      font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
-      padding: 4px 12px; border-radius: 100px; margin-bottom: 20px;
-    }
+    .pricing-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; margin-top: 60px; max-width: 780px; margin-left: auto; margin-right: auto; }
+    .pricing-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 36px; }
+    .pricing-card.featured { border-color: var(--gold); box-shadow: 0 0 60px rgba(201,168,76,0.1); }
+    .pricing-badge { display: inline-block; background: var(--gold); color: var(--black); font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; margin-bottom: 20px; }
     .pricing-name { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
-    .pricing-price {
-      font-size: 48px; font-weight: 900; letter-spacing: -2px;
-      margin-bottom: 8px;
-    }
+    .pricing-price { font-size: 48px; font-weight: 900; letter-spacing: -2px; margin-bottom: 8px; }
     .pricing-price span { font-size: 20px; font-weight: 500; color: var(--muted); }
     .pricing-desc { font-size: 14px; color: var(--muted); margin-bottom: 28px; line-height: 1.6; }
     .pricing-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
     .pricing-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; }
     .pricing-list li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
-    .pricing-cta {
-      display: block; text-align: center; text-decoration: none;
-      padding: 14px; border-radius: 100px;
-      font-size: 15px; font-weight: 700; transition: all 0.2s;
-    }
-    .pricing-card.featured .pricing-cta {
-      background: var(--gold); color: var(--black);
-    }
+    .pricing-cta { display: block; text-align: center; text-decoration: none; padding: 14px; border-radius: 100px; font-size: 15px; font-weight: 700; transition: all 0.2s; }
+    .pricing-card.featured .pricing-cta { background: var(--gold); color: var(--black); }
     .pricing-card.featured .pricing-cta:hover { background: var(--gold-light); }
-    .pricing-card:not(.featured) .pricing-cta {
-      background: transparent; color: var(--white);
-      border: 1px solid var(--border);
-    }
+    .pricing-card:not(.featured) .pricing-cta { background: transparent; color: var(--white); border: 1px solid var(--border); }
     .pricing-card:not(.featured) .pricing-cta:hover { border-color: var(--gold); color: var(--gold); }
 
-    /* ── FAQ ── */
     .faq-section { background: var(--surface); }
     .faq-list { max-width: 720px; margin: 60px auto 0; display: flex; flex-direction: column; gap: 2px; }
     .faq-item { border-bottom: 1px solid var(--border); }
-    .faq-q {
-      width: 100%; background: none; border: none; color: var(--white);
-      font-size: 16px; font-weight: 600; text-align: left;
-      padding: 20px 0; cursor: pointer;
-      display: flex; justify-content: space-between; align-items: center; gap: 16px;
-    }
+    .faq-q { width: 100%; background: none; border: none; color: var(--white); font-size: 16px; font-weight: 600; text-align: left; padding: 20px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
     .faq-q .arrow { color: var(--gold); font-size: 20px; transition: transform 0.2s; flex-shrink: 0; }
     .faq-a { font-size: 15px; color: var(--muted); line-height: 1.7; padding: 0 0 20px; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .arrow { transform: rotate(45deg); }
 
-    /* ── FINAL CTA ── */
-    .final-cta {
-      text-align: center; padding: 120px 24px;
-      background: linear-gradient(180deg, var(--black) 0%, #0f0c00 50%, var(--black) 100%);
-    }
-    .final-cta h2 {
-      font-size: clamp(36px, 6vw, 64px);
-      font-weight: 900; letter-spacing: -2px; line-height: 1.05;
-      margin-bottom: 24px;
-    }
-    .final-cta h2 em {
-      font-style: italic; font-family: 'Playfair Display', serif; color: var(--gold);
-    }
+    .final-cta { text-align: center; padding: 120px 24px; background: linear-gradient(180deg, var(--black) 0%, #0f0c00 50%, var(--black) 100%); }
+    .final-cta h2 { font-size: clamp(36px, 6vw, 64px); font-weight: 900; letter-spacing: -2px; line-height: 1.05; margin-bottom: 24px; }
+    .final-cta h2 em { font-style: italic; font-family: 'Playfair Display', serif; color: var(--gold); }
     .final-cta p { font-size: 18px; color: var(--muted); margin-bottom: 40px; }
 
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 40px 24px;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 16px;
-      max-width: 1100px; margin: 0 auto;
-    }
+    footer { border-top: 1px solid var(--border); padding: 40px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; max-width: 1100px; margin: 0 auto; }
     .footer-logo { font-size: 16px; font-weight: 800; }
     .footer-logo span { color: var(--gold); }
     .footer-links { display: flex; gap: 24px; }
@@ -433,13 +232,11 @@
     .footer-links a:hover { color: var(--gold); }
     .footer-copy { color: var(--muted); font-size: 13px; width: 100%; text-align: center; padding-top: 20px; border-top: 1px solid var(--border); }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 14px 20px; }
       .dashboard-grid { grid-template-columns: 1fr; }
       .sidebar { display: none; }
       .problem-grid { grid-template-columns: 1fr; gap: 40px; }
-      .problem-divider { display: none; }
       .diff-inner { grid-template-columns: 1fr; gap: 48px; }
       footer { flex-direction: column; text-align: center; }
       .footer-links { justify-content: center; }
@@ -448,20 +245,17 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">Life<span>HQ</span></div>
-  <a href="#pricing" class="nav-cta">Get the Template →</a>
+  <a href="#pricing" class="nav-cta">Get Life HQ →</a>
 </nav>
 
-
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-eyebrow">✦ For Ministry & Marketplace Entrepreneurs</div>
+  <div class="hero-eyebrow">✦ For Ambitious Leaders &amp; Entrepreneurs</div>
   <h1>Your whole life.<br>One <em>system.</em></h1>
-  <p class="hero-sub">Stop juggling 6 apps, 3 notebooks, and a dozen sticky notes. Life HQ is the single Notion template built for faith-driven leaders who are serious about designing their life on purpose.</p>
+  <p class="hero-sub">Stop juggling 6 apps, 3 notebooks, and a dozen sticky notes. Life HQ is the single Notion template built for driven leaders who are serious about designing their life on purpose.</p>
   <div class="hero-actions">
-    <a href="#pricing" class="btn-primary">Get Life HQ — $27 →</a>
+    <a href="#pricing" class="btn-primary">Get Life HQ →</a>
     <a href="#features" class="btn-secondary">See what's inside</a>
   </div>
   <div class="hero-social-proof">
@@ -470,13 +264,10 @@
   </div>
 </section>
 
-<!-- DASHBOARD MOCKUP -->
 <div class="dashboard-wrap">
   <div class="dashboard-frame">
     <div class="frame-bar">
-      <div class="dot dot-r"></div>
-      <div class="dot dot-y"></div>
-      <div class="dot dot-g"></div>
+      <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
       <div class="frame-title">Life HQ — Home Dashboard</div>
     </div>
     <div class="dashboard-grid">
@@ -484,7 +275,7 @@
         <div class="sidebar-section">Navigation</div>
         <div class="sidebar-item active"><span class="icon">🏠</span> Home</div>
         <div class="sidebar-item"><span class="icon">🪞</span> Who Am I?</div>
-        <div class="sidebar-item"><span class="icon">🎯</span> Goals & Vision</div>
+        <div class="sidebar-item"><span class="icon">🎯</span> Goals &amp; Vision</div>
         <div class="sidebar-item"><span class="icon">✅</span> Master Tasks</div>
         <div class="sidebar-item"><span class="icon">💰</span> Budget</div>
         <div class="sidebar-item"><span class="icon">📔</span> Daily Journal</div>
@@ -500,18 +291,9 @@
         <div class="main-title">Welcome back, Sean 👋</div>
         <div class="main-sub">Q2 2025 · Week 14 · Let's build something that matters.</div>
         <div class="stats-row">
-          <div class="stat-card">
-            <div class="stat-label">Active Goals</div>
-            <div class="stat-value gold">6</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-label">Tasks This Week</div>
-            <div class="stat-value">12</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-label">Habit Streak</div>
-            <div class="stat-value gold">14d</div>
-          </div>
+          <div class="stat-card"><div class="stat-label">Active Goals</div><div class="stat-value gold">6</div></div>
+          <div class="stat-card"><div class="stat-label">Tasks This Week</div><div class="stat-value">12</div></div>
+          <div class="stat-card"><div class="stat-label">Habit Streak</div><div class="stat-value gold">14d</div></div>
         </div>
         <div class="quick-nav">
           <div class="nav-tile"><span>🎯</span> Today's Focus</div>
@@ -524,8 +306,6 @@
   </div>
 </div>
 
-
-<!-- PROBLEM -->
 <section class="problem-section">
   <div class="section-inner">
     <div class="section-eyebrow">The Problem</div>
@@ -533,7 +313,7 @@
     <p class="section-desc">Most driven people have the goals. They don't have the system to execute them consistently.</p>
     <div class="problem-grid">
       <div>
-        <p style="font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); font-weight: 700; margin-bottom: 20px;">Without Life HQ</p>
+        <p style="font-size:14px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);font-weight:700;margin-bottom:20px;">Without Life HQ</p>
         <ul class="problem-list">
           <li><span class="x">✗</span> Scattered across 6 apps that don't talk to each other</li>
           <li><span class="x">✗</span> Goals set in January, forgotten by March</li>
@@ -544,7 +324,7 @@
         </ul>
       </div>
       <div>
-        <p style="font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); font-weight: 700; margin-bottom: 20px;">With Life HQ</p>
+        <p style="font-size:14px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);font-weight:700;margin-bottom:20px;">With Life HQ</p>
         <ul class="problem-list">
           <li><span class="check">✓</span> Everything in one connected system — no context switching</li>
           <li><span class="check">✓</span> Goals broken down by life lane with clear next actions</li>
@@ -558,142 +338,52 @@
   </div>
 </section>
 
-
-<!-- FEATURES -->
 <section id="features">
   <div class="section-inner">
     <div class="section-eyebrow">What's Inside</div>
     <h2 class="section-title">12 sections. <em>Zero</em> bloat.</h2>
     <p class="section-desc">Every section is purpose-built. Nothing is included just to look impressive.</p>
     <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">🪞</div>
-        <div class="feature-name">Who Am I?</div>
-        <div class="feature-desc">Your identity foundation. Values, personality, spiritual gifts, Enneagram, MBTI, DISC, CliftonStrengths, and APEST — all in one place. Know yourself first.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🎯</div>
-        <div class="feature-name">Goals & Vision</div>
-        <div class="feature-desc">Annual goals organized across your 6 life lanes: faith, family, health, impact, business, and financial freedom. Word of the year. Memory board. Progress tracking.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">✅</div>
-        <div class="feature-name">Master Task List</div>
-        <div class="feature-desc">Every task you need to do — filtered by priority, category, and status. Never lose track of what matters most.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">💰</div>
-        <div class="feature-name">Budget Tracker</div>
-        <div class="feature-desc">Monthly income, expenses, and financial goals. Simple enough to actually use every month.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📔</div>
-        <div class="feature-name">Daily Journal</div>
-        <div class="feature-desc">Morning prompts, evening reflections, and free-form brain dumps. Build the habit of processing your life, not just living it.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">💪</div>
-        <div class="feature-name">Health & Fitness</div>
-        <div class="feature-desc">Workout logs, nutrition tracking, wellness goals. Your body is part of your calling — steward it.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">✈️</div>
-        <div class="feature-name">Travel Hub</div>
-        <div class="feature-desc">Trip planning, packing lists, itineraries, and travel notes. Missions trips to mission retreats — all covered.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📚</div>
-        <div class="feature-name">Info Vault</div>
-        <div class="feature-desc">Books read, favorite quotes, resources, and links worth keeping. Your knowledge base — organized.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📅</div>
-        <div class="feature-name">Calendar</div>
-        <div class="feature-desc">Events, appointments, and deadlines in one view. Your time is your most valuable resource — plan it intentionally.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🔁</div>
-        <div class="feature-name">Habit Tracker</div>
-        <div class="feature-desc">Daily and weekly habits with a 7-day check-in grid. Board view shows only active habits — clean, not cluttered.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🚀</div>
-        <div class="feature-name">Project Hub</div>
-        <div class="feature-desc">All active projects tracked by status, priority, progress %, and next action. Kanban board. Never wonder what's stalled again.</div>
-      </div>
-      <div class="feature-card" style="border-color: rgba(201,168,76,0.4); background: rgba(201,168,76,0.05);">
-        <div class="feature-icon">🔄</div>
-        <div class="feature-name" style="color: var(--gold);">Quarterly Review ✦</div>
-        <div class="feature-desc">Our signature differentiator. A structured 7-step reflection framework inspired by John Maxwell — covering wins, losses, life lane scores, and 90-day intentions. Not a tracker. A growth engine.</div>
-      </div>
+      <div class="feature-card"><div class="feature-icon">🪞</div><div class="feature-name">Who Am I?</div><div class="feature-desc">Your identity foundation. Values, personality, spiritual gifts, Enneagram, MBTI, DISC, CliftonStrengths, and APEST — all in one place.</div></div>
+      <div class="feature-card"><div class="feature-icon">🎯</div><div class="feature-name">Goals &amp; Vision</div><div class="feature-desc">Annual goals organized across your 6 life lanes: faith, family, health, impact, business, and financial freedom. Word of the year. Memory board.</div></div>
+      <div class="feature-card"><div class="feature-icon">✅</div><div class="feature-name">Master Task List</div><div class="feature-desc">Every task you need to do — filtered by priority, category, and status. Never lose track of what matters most.</div></div>
+      <div class="feature-card"><div class="feature-icon">💰</div><div class="feature-name">Budget Tracker</div><div class="feature-desc">Monthly income, expenses, and financial goals. Simple enough to actually use every month.</div></div>
+      <div class="feature-card"><div class="feature-icon">📔</div><div class="feature-name">Daily Journal</div><div class="feature-desc">Morning prompts, evening reflections, and free-form brain dumps. Build the habit of processing your life, not just living it.</div></div>
+      <div class="feature-card"><div class="feature-icon">💪</div><div class="feature-name">Health &amp; Fitness</div><div class="feature-desc">Workout logs, nutrition tracking, wellness goals. Your body is part of your calling — steward it.</div></div>
+      <div class="feature-card"><div class="feature-icon">✈️</div><div class="feature-name">Travel Hub</div><div class="feature-desc">Trip planning, packing lists, itineraries, and travel notes. All covered.</div></div>
+      <div class="feature-card"><div class="feature-icon">📚</div><div class="feature-name">Info Vault</div><div class="feature-desc">Books read, favorite quotes, resources, and links worth keeping. Your knowledge base — organized.</div></div>
+      <div class="feature-card"><div class="feature-icon">📅</div><div class="feature-name">Calendar</div><div class="feature-desc">Events, appointments, and deadlines in one view. Your time is your most valuable resource — plan it intentionally.</div></div>
+      <div class="feature-card"><div class="feature-icon">🔁</div><div class="feature-name">Habit Tracker</div><div class="feature-desc">Daily and weekly habits with a 7-day check-in grid. Board view shows only active habits — clean, not cluttered.</div></div>
+      <div class="feature-card"><div class="feature-icon">🚀</div><div class="feature-name">Project Hub</div><div class="feature-desc">All active projects tracked by status, priority, progress %, and next action. Kanban board. Never wonder what's stalled again.</div></div>
+      <div class="feature-card" style="border-color:rgba(201,168,76,0.4);background:rgba(201,168,76,0.05);"><div class="feature-icon">🔄</div><div class="feature-name" style="color:var(--gold);">Quarterly Review ✦</div><div class="feature-desc">A structured 7-step reflection framework inspired by John Maxwell — covering wins, losses, life lane scores, and 90-day intentions. Not a tracker. A growth engine.</div></div>
     </div>
   </div>
 </section>
 
-
-<!-- WHO IT'S FOR -->
 <section class="for-section">
   <div class="section-inner">
     <div class="section-eyebrow">Who It's For</div>
     <h2 class="section-title">Built for the <em>driven.</em></h2>
     <div class="for-cards">
-      <div class="for-card">
-        <div class="for-card-icon">⛪</div>
-        <h3>Ministry Leaders</h3>
-        <p>Pastors, church planters, ministry directors — you're serving others at full capacity while trying to build your own life. Life HQ gives you the structure to lead yourself first.</p>
-      </div>
-      <div class="for-card">
-        <div class="for-card-icon">📈</div>
-        <h3>Marketplace Entrepreneurs</h3>
-        <p>Building a business and a life at the same time is brutal without a system. Life HQ keeps your goals, projects, finances, and habits inside one place so nothing falls through.</p>
-      </div>
-      <div class="for-card">
-        <div class="for-card-icon">✝️</div>
-        <h3>Faith-Driven Builders</h3>
-        <p>You believe your work is your calling. Life HQ integrates faith into every layer — your identity, your values, your APEST wiring, and your quarterly reset. This isn't just productivity. It's stewardship.</p>
-      </div>
+      <div class="for-card"><div class="for-card-icon">⛪</div><h3>Ministry Leaders</h3><p>Pastors, church planters, ministry directors — you're serving others at full capacity while trying to build your own life. Life HQ gives you the structure to lead yourself first.</p></div>
+      <div class="for-card"><div class="for-card-icon">📈</div><h3>Marketplace Entrepreneurs</h3><p>Building a business and a life at the same time is brutal without a system. Life HQ keeps your goals, projects, finances, and habits in one place so nothing falls through.</p></div>
+      <div class="for-card"><div class="for-card-icon">✝️</div><h3>Faith-Driven Builders</h3><p>You believe your work is your calling. Life HQ integrates faith into every layer — your identity, your values, your APEST wiring, and your quarterly reset.</p></div>
     </div>
   </div>
 </section>
 
-
-<!-- DIFFERENTIATOR — QUARTERLY REVIEW -->
 <section class="diff-section">
   <div class="section-inner">
     <div class="diff-inner">
       <div>
         <div class="section-eyebrow">The Differentiator</div>
         <h2 class="section-title">The Quarterly Review that <em>changes</em> things.</h2>
-        <p class="section-desc" style="margin-bottom: 0;">Most templates track what you're doing. This one makes sure you're doing the right things — and growing from everything you do.</p>
+        <p class="section-desc" style="margin-bottom:0;">Most templates track what you're doing. This one makes sure you're doing the right things.</p>
         <div class="diff-steps">
-          <div class="diff-step">
-            <div class="step-num">1</div>
-            <div class="step-text">
-              <h4>Gather & Review</h4>
-              <p>Pull together the quarter — wins, losses, what you expected vs. what happened.</p>
-            </div>
-          </div>
-          <div class="diff-step">
-            <div class="step-num">2</div>
-            <div class="step-text">
-              <h4>Three Reflective Questions</h4>
-              <p>What did I feel? What do I know? What do I think I should do? Processing before planning.</p>
-            </div>
-          </div>
-          <div class="diff-step">
-            <div class="step-num">3</div>
-            <div class="step-text">
-              <h4>Score Your 6 Life Lanes</h4>
-              <p>Faith, family, health, impact, business, financial freedom. Honest scoring. Honest adjustments.</p>
-            </div>
-          </div>
-          <div class="diff-step">
-            <div class="step-num">4</div>
-            <div class="step-text">
-              <h4>Set 90-Day Intentions</h4>
-              <p>Not a to-do list. A direction. What are you building, protecting, and becoming next quarter?</p>
-            </div>
-          </div>
+          <div class="diff-step"><div class="step-num">1</div><div class="step-text"><h4>Gather &amp; Review</h4><p>Pull together the quarter — wins, losses, what you expected vs. what happened.</p></div></div>
+          <div class="diff-step"><div class="step-num">2</div><div class="step-text"><h4>Three Reflective Questions</h4><p>What did I feel? What do I know? What do I think I should do?</p></div></div>
+          <div class="diff-step"><div class="step-num">3</div><div class="step-text"><h4>Score Your 6 Life Lanes</h4><p>Faith, family, health, impact, business, financial freedom. Honest scoring. Honest adjustments.</p></div></div>
+          <div class="diff-step"><div class="step-num">4</div><div class="step-text"><h4>Set 90-Day Intentions</h4><p>Not a to-do list. A direction. What are you building, protecting, and becoming next quarter?</p></div></div>
         </div>
       </div>
       <div>
@@ -701,21 +391,13 @@
           <div class="quote-text">"Reflection turns experience into insight. Insight is the currency of growth."</div>
           <div class="quote-attr">— Inspired by John Maxwell's 7-Step Reflection Framework</div>
         </div>
-        <div style="margin-top: 24px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px;">
-          <p style="font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); font-weight: 700; margin-bottom: 16px;">What others charge extra for:</p>
-          <div style="display: flex; flex-direction: column; gap: 10px;">
-            <div style="display: flex; justify-content: space-between; font-size: 14px;">
-              <span>Habit Tracker</span> <span style="color: var(--muted);">$10–15 separate</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; font-size: 14px;">
-              <span>Project Management</span> <span style="color: var(--muted);">$15–25 separate</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; font-size: 14px;">
-              <span>Quarterly Review System</span> <span style="color: var(--muted);">$20–40 courses</span>
-            </div>
-            <div style="border-top: 1px solid var(--border); margin-top: 8px; padding-top: 12px; display: flex; justify-content: space-between; font-size: 16px; font-weight: 800;">
-              <span>Life HQ — All of it</span> <span style="color: var(--gold);">$27</span>
-            </div>
+        <div style="margin-top:24px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;">
+          <p style="font-size:13px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);font-weight:700;margin-bottom:16px;">What others charge extra for:</p>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;justify-content:space-between;font-size:14px;"><span>Habit Tracker</span><span style="color:var(--muted);">$10–15 separate</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:14px;"><span>Project Management</span><span style="color:var(--muted);">$15–25 separate</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:14px;"><span>Quarterly Review System</span><span style="color:var(--muted);">$20–40 courses</span></div>
+            <div style="border-top:1px solid var(--border);margin-top:8px;padding-top:12px;display:flex;justify-content:space-between;font-size:16px;font-weight:800;"><span>Life HQ Full System</span><span style="color:var(--gold);">$39</span></div>
           </div>
         </div>
       </div>
@@ -723,14 +405,12 @@
   </div>
 </section>
 
-
-<!-- EMAIL CAPTURE -->
 <section class="email-section">
   <div class="section-inner">
     <div class="email-inner">
       <div class="email-tag">Free Resource</div>
       <h2 class="section-title">Download the free<br><em>6 Life Lanes</em> Framework</h2>
-      <p class="section-desc" style="margin: 0 auto 0; text-align: center;">A one-page audit of where you actually are across faith, family, health, impact, business, and financial freedom. The clarity exercise before the system.</p>
+      <p class="section-desc" style="margin:0 auto;text-align:center;">A one-page audit of where you actually are across faith, family, health, impact, business, and financial freedom.</p>
       <form class="email-form" onsubmit="handleForm(event)">
         <input type="email" placeholder="Your email address" required />
         <button type="submit">Send It Free →</button>
@@ -740,102 +420,85 @@
   </div>
 </section>
 
-
-<!-- PRICING -->
 <section id="pricing">
-  <div class="section-inner" style="text-align: center;">
+  <div class="section-inner" style="text-align:center;">
     <div class="section-eyebrow">Pricing</div>
     <h2 class="section-title">Simple. <em>Honest.</em></h2>
-    <p class="section-desc" style="margin: 0 auto;">Pick the version that fits where you are right now.</p>
+    <p class="section-desc" style="margin:0 auto;">Pick the version that fits where you are right now.</p>
     <div class="pricing-cards">
       <div class="pricing-card">
-        <div class="pricing-name">Starter</div>
-        <div class="pricing-price">$17 <span>one-time</span></div>
-        <div class="pricing-desc">The full template. Everything you need to get your life in one place. Duplicate and start immediately.</div>
+        <div class="pricing-name">Core</div>
+        <div class="pricing-price">$19 <span>one-time</span></div>
+        <div class="pricing-desc">The foundation. Six essential sections to get your identity, goals, tasks, money, journal, and health all in one place.</div>
         <ul class="pricing-list">
-          <li>All 12 sections of Life HQ</li>
-          <li>Personality test links (Enneagram, MBTI, APEST, DISC)</li>
-          <li>Habit Tracker + Project Hub</li>
-          <li>Quarterly Review framework</li>
+          <li>🪞 Who Am I? — identity &amp; personality frameworks</li>
+          <li>🎯 Goals &amp; Vision — 6 life lanes + word of the year</li>
+          <li>✅ Master Task List — priorities, filters, categories</li>
+          <li>💰 Budget Tracker — income, expenses, financial goals</li>
+          <li>📔 Daily Journal — prompts, reflections, brain dumps</li>
+          <li>💪 Health &amp; Fitness — workouts, nutrition, wellness</li>
           <li>Instant Notion access — works with free plan</li>
         </ul>
-        <a href="#" class="pricing-cta">Get Starter →</a>
+        <a href="#" class="pricing-cta" id="cta-core">Get Core →</a>
       </div>
       <div class="pricing-card featured">
-        <div class="pricing-badge">Best Value</div>
+        <div class="pricing-badge">Most Popular</div>
         <div class="pricing-name">Full System</div>
-        <div class="pricing-price">$47 <span>one-time</span></div>
-        <div class="pricing-desc">The template plus a video walkthrough and a live quarterly review session to get you fully set up and operating.</div>
+        <div class="pricing-price">$39 <span>one-time</span></div>
+        <div class="pricing-desc">Every section. Every tool. Plus a full video tutorial showing you exactly how to set it up and use it daily.</div>
         <ul class="pricing-list">
-          <li>Everything in Starter</li>
-          <li>Full video walkthrough (setup + use)</li>
-          <li>Quarterly Review workshop replay</li>
-          <li>Priority email support</li>
-          <li>All future template updates free</li>
+          <li>Everything in Core</li>
+          <li>✈️ Travel Hub — trip planning &amp; packing lists</li>
+          <li>📚 Info Vault — books, quotes, resources</li>
+          <li>📅 Calendar — events, deadlines, appointments</li>
+          <li>🔁 Habit Tracker — 7-day check-in grid</li>
+          <li>🚀 Project Hub — Kanban board, status &amp; priority</li>
+          <li>🔄 Quarterly Review — Maxwell 7-step framework</li>
+          <li>🎥 Full video tutorial — setup &amp; daily implementation</li>
+          <li>All future updates included</li>
         </ul>
-        <a href="#" class="pricing-cta">Get Full System →</a>
+        <a href="#" class="pricing-cta" id="cta-full">Get Full System →</a>
       </div>
     </div>
-    <p style="font-size: 13px; color: var(--muted); margin-top: 24px;">Requires a free Notion account. Works on desktop, tablet, and mobile.</p>
+    <p style="font-size:13px;color:var(--muted);margin-top:24px;">Requires a free Notion account. Works on desktop, tablet, and mobile.</p>
   </div>
 </section>
 
-
-<!-- FAQ -->
 <section class="faq-section">
-  <div class="section-inner" style="text-align: center;">
+  <div class="section-inner" style="text-align:center;">
     <div class="section-eyebrow">FAQ</div>
     <h2 class="section-title">Questions, <em>answered.</em></h2>
     <div class="faq-list">
       <div class="faq-item open">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Do I need a paid Notion account?
-          <span class="arrow">+</span>
-        </button>
+        <button class="faq-q" onclick="toggleFaq(this)">Do I need a paid Notion account?<span class="arrow">+</span></button>
         <div class="faq-a">No. Life HQ runs on Notion's free plan. You just need a free account at notion.so — no subscription required.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          How do I get it after purchase?
-          <span class="arrow">+</span>
-        </button>
-        <div class="faq-a">You'll receive an instant download link with a Notion template URL. Click it, hit "Duplicate," and it's in your workspace. The whole setup takes less than 10 minutes.</div>
+        <button class="faq-q" onclick="toggleFaq(this)">How do I get it after purchase?<span class="arrow">+</span></button>
+        <div class="faq-a">You'll receive an instant download link with a Notion template URL. Click it, hit "Duplicate," and it's in your workspace. Setup takes less than 10 minutes.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Is this only for Christians or ministry leaders?
-          <span class="arrow">+</span>
-        </button>
-        <div class="faq-a">The framework is built with a faith-first lens, but the system works for any driven person. The identity section, goal framework, and quarterly review apply to anyone serious about designing their life with intention.</div>
+        <button class="faq-q" onclick="toggleFaq(this)">What's the difference between Core and Full System?<span class="arrow">+</span></button>
+        <div class="faq-a">Core gives you the 6 essential sections: identity, goals, tasks, budget, journal, and health. Full System adds Travel Hub, Info Vault, Calendar, Habit Tracker, Project Hub, and the Quarterly Review — plus a full video tutorial walking you through setup and daily use.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          I already have a Notion setup. Can I use parts of this?
-          <span class="arrow">+</span>
-        </button>
-        <div class="faq-a">Yes. Notion lets you duplicate individual pages from any template into your existing workspace. You don't have to use it all at once — start with the sections you need most.</div>
+        <button class="faq-q" onclick="toggleFaq(this)">Is this only for Christians or ministry leaders?<span class="arrow">+</span></button>
+        <div class="faq-a">The framework is built with a faith-first lens, but the system works for any ambitious leader. The identity section, goal framework, and quarterly review apply to anyone serious about designing their life with intention.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          What's the difference between this and other life OS templates?
-          <span class="arrow">+</span>
-        </button>
-        <div class="faq-a">Most templates are built for productivity. Life HQ is built for people — specifically faith-driven leaders who know their life has more than one dimension. The Who Am I? section with personality frameworks, the 6 life lanes, and the Maxwell-inspired quarterly review make this built for growth, not just task management.</div>
+        <button class="faq-q" onclick="toggleFaq(this)">I already have a Notion setup. Can I use parts of this?<span class="arrow">+</span></button>
+        <div class="faq-a">Yes. Notion lets you duplicate individual pages from any template into your existing workspace. Start with the sections you need most.</div>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- FINAL CTA -->
 <section class="final-cta">
   <h2>Stop planning to get organized.<br><em>Just get organized.</em></h2>
   <p>One template. Every area of life. Set up in under 10 minutes.</p>
-  <a href="#pricing" class="btn-primary" style="font-size: 18px; padding: 18px 40px;">Get Life HQ Now →</a>
+  <a href="#pricing" class="btn-primary" style="font-size:18px;padding:18px 40px;">Get Life HQ Now →</a>
 </section>
 
-
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">Life<span>HQ</span></div>
   <div class="footer-links">
@@ -843,28 +506,18 @@
     <a href="#pricing">Pricing</a>
     <a href="mailto:traffickickssales@gmail.com">Contact</a>
   </div>
-  <div class="footer-copy">© 2025 Life HQ · Built for driven ministry & marketplace entrepreneurs · Powered by Notion</div>
+  <div class="footer-copy">© 2025 Life HQ · Built for ambitious leaders &amp; entrepreneurs · Powered by Notion</div>
 </footer>
 
-
 <script>
-  function toggleFaq(btn) {
-    const item = btn.closest('.faq-item');
-    item.classList.toggle('open');
-  }
-
+  function toggleFaq(btn) { btn.closest('.faq-item').classList.toggle('open'); }
   function handleForm(e) {
     e.preventDefault();
     const btn = e.target.querySelector('button');
     btn.textContent = '✓ Check your inbox!';
     btn.style.background = '#28C840';
     btn.style.color = '#fff';
-    setTimeout(() => {
-      btn.textContent = 'Send It Free →';
-      btn.style.background = '';
-      btn.style.color = '';
-      e.target.reset();
-    }, 3000);
+    setTimeout(() => { btn.textContent = 'Send It Free →'; btn.style.background = ''; btn.style.color = ''; e.target.reset(); }, 3000);
   }
 </script>
 </body>
