@@ -761,7 +761,7 @@
           <li>💪 Health & Fitness — workouts, nutrition, wellness</li>
           <li>Instant Notion access — works with free plan</li>
         </ul>
-        <a href="#" class="pricing-cta" id="cta-core">Get Core →</a>
+        <a href="https://buy.stripe.com/aFa28qcyW13o9IV4jR6sw00" class="pricing-cta" id="cta-core">Get Core →</a>
       </div>
       <div class="pricing-card featured">
         <div class="pricing-badge">Most Popular</div>
@@ -778,7 +778,7 @@
           <li>🔄 Quarterly Review — Maxwell 7-step framework</li>
           <li>All future updates included</li>
         </ul>
-        <a href="#" class="pricing-cta" id="cta-full">Get Full System →</a>
+        <a href="https://buy.stripe.com/fZu14m0Qe13odZb03B6sw01" class="pricing-cta" id="cta-full">Get Full System →</a>
       </div>
       <div class="pricing-card" style="border-color:rgba(201,168,76,0.6);background:rgba(201,168,76,0.04);">
         <div class="pricing-badge" style="background:transparent;border:1px solid var(--gold);color:var(--gold);">Premium</div>
@@ -791,7 +791,7 @@
           <li>📬 Priority email support</li>
           <li>All future updates included</li>
         </ul>
-        <a href="#" class="pricing-cta" id="cta-premium" style="background:var(--gold);color:var(--black);">Get Premium →</a>
+        <a href="https://buy.stripe.com/fZu3cugPcfYi9IV7w36sw02" class="pricing-cta" id="cta-premium" style="background:var(--gold);color:var(--black);">Get Premium →</a>
       </div>
     </div>
     <p style="font-size: 13px; color: var(--muted); margin-top: 24px;">Requires a free Notion account. Works on desktop, tablet, and mobile.</p>
@@ -865,24 +865,57 @@
 </footer>
 
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
+  // ── EmailJS config — fill these in after setup ──
+  const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
+  const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
+  const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+
+  (function() { emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY }); })();
+
   function toggleFaq(btn) {
-    const item = btn.closest('.faq-item');
-    item.classList.toggle('open');
+    btn.closest('.faq-item').classList.toggle('open');
   }
 
   function handleForm(e) {
     e.preventDefault();
-    const btn = e.target.querySelector('button');
-    btn.textContent = '✓ Check your inbox!';
-    btn.style.background = '#28C840';
-    btn.style.color = '#fff';
-    setTimeout(() => {
-      btn.textContent = 'Send It Free →';
-      btn.style.background = '';
-      btn.style.color = '';
-      e.target.reset();
-    }, 3000);
+    const form   = e.target;
+    const btn    = form.querySelector('button');
+    const email  = form.querySelector('input[type="email"]').value;
+
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      to_email: email,
+      pdf_link: 'https://lifeheadquarters.co/6-Life-Lanes-Framework.pdf',
+      reply_to: 'traffickickssales@gmail.com'
+    })
+    .then(() => {
+      btn.textContent = '✓ Check your inbox!';
+      btn.style.background = '#28C840';
+      btn.style.color = '#fff';
+      form.reset();
+      setTimeout(() => {
+        btn.textContent = 'Send It Free →';
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.disabled = false;
+      }, 4000);
+    })
+    .catch((err) => {
+      console.error('EmailJS error:', err);
+      btn.textContent = 'Something went wrong — try again';
+      btn.style.background = '#FF5F57';
+      btn.style.color = '#fff';
+      btn.disabled = false;
+      setTimeout(() => {
+        btn.textContent = 'Send It Free →';
+        btn.style.background = '';
+        btn.style.color = '';
+      }, 3000);
+    });
   }
 </script>
 </body>
