@@ -514,8 +514,8 @@
         <div class="sidebar-item"><span class="icon">🔄</span> Quarterly Review</div>
       </div>
       <div class="main-content">
-        <div class="main-title">Welcome back, Sean 👋</div>
-        <div class="main-sub">Q2 2025 · Week 14 · Let's build something that matters.</div>
+        <div class="main-title">Welcome back, Alex 👋</div>
+        <div class="main-sub">Q2 2026 · Week 17 · Let's build something that matters.</div>
         <div class="stats-row">
           <div class="stat-card">
             <div class="stat-label">Active Goals</div>
@@ -523,18 +523,18 @@
           </div>
           <div class="stat-card">
             <div class="stat-label">Tasks This Week</div>
-            <div class="stat-value">12</div>
+            <div class="stat-value">9</div>
           </div>
           <div class="stat-card">
             <div class="stat-label">Habit Streak</div>
-            <div class="stat-value gold">14d</div>
+            <div class="stat-value gold">21d</div>
           </div>
         </div>
         <div class="quick-nav">
-          <div class="nav-tile"><span>🎯</span> Today's Focus</div>
+          <div class="nav-tile"><span>🙏</span> Morning Devotional</div>
           <div class="nav-tile"><span>🔄</span> Q2 Review Due</div>
           <div class="nav-tile"><span>💰</span> Budget Check</div>
-          <div class="nav-tile"><span>🚀</span> Etsy Launch</div>
+          <div class="nav-tile"><span>🚀</span> Ministry Launch</div>
         </div>
       </div>
     </div>
@@ -596,7 +596,7 @@
       <div class="feature-card">
         <div class="feature-icon">✅</div>
         <div class="feature-name">Master Task List</div>
-        <div class="feature-desc">Every task you need to do — filtered by priority, category, and status. Never lose track of what matters most.</div>
+        <div class="feature-desc">Every task in one place — with pre-built filtered views by area: Ministry, Business, Personal, Finance, Health, Home, and Travel. Plus a High Priority view for what's urgent now.</div>
       </div>
       <div class="feature-card">
         <div class="feature-icon">💰</div>
@@ -626,7 +626,7 @@
       <div class="feature-card">
         <div class="feature-icon">📅</div>
         <div class="feature-name">Calendar</div>
-        <div class="feature-desc">Events, appointments, and deadlines in one view. Your time is your most valuable resource — plan it intentionally.</div>
+        <div class="feature-desc">Monthly, weekly, and daily views — all built in. Events, appointments, and deadlines organized with categories, recurring options, and same-day list view.</div>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🔁</div>
@@ -731,7 +731,7 @@
               <span>Quarterly Review System</span> <span style="color: var(--muted);">$20–40 courses</span>
             </div>
             <div style="border-top: 1px solid var(--border); margin-top: 8px; padding-top: 12px; display: flex; justify-content: space-between; font-size: 16px; font-weight: 800;">
-              <span>Life HQ Premium — All of it</span> <span style="color: var(--gold);">$49</span>
+              <span>Life HQ Ministry — All of it</span> <span style="color: var(--gold);">$49</span>
             </div>
           </div>
         </div>
@@ -763,57 +763,100 @@
   <div class="section-inner" style="text-align: center;">
     <div class="section-eyebrow">Pricing</div>
     <h2 class="section-title">Simple. <em>Honest.</em></h2>
-    <p class="section-desc" style="margin: 0 auto;">Pick the version that fits where you are right now.</p>
-    <div class="pricing-cards" style="max-width:1100px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));">
+    <p class="section-desc" style="margin: 0 auto;">One template. Two versions. Built for where you lead.</p>
+
+    <!-- ADD-ON TOGGLE -->
+    <div style="display:inline-flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:12px 24px;margin:32px auto 0;cursor:pointer;" onclick="toggleAddon()" id="addon-toggle">
+      <div id="addon-check" style="width:20px;height:20px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;">
+        <span id="addon-check-inner" style="display:none;color:var(--black);font-size:12px;font-weight:900;">✓</span>
+      </div>
+      <span style="font-size:14px;font-weight:600;">🎥 Add Training Video Walkthrough <span style="color:var(--gold);">(+$14)</span></span>
+    </div>
+    <p style="font-size:12px;color:var(--muted);margin:8px 0 0;">Step-by-step video showing you how to set up and use every section of Life HQ</p>
+
+    <div class="pricing-cards" style="max-width:780px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));margin-top:40px;">
+
+      <!-- BUSINESS LEADERS -->
       <div class="pricing-card">
-        <div class="pricing-name">Core</div>
-        <div class="pricing-price">$19 <span>one-time</span></div>
-        <div class="pricing-desc">The foundation. Six essential sections to get your identity, goals, tasks, money, journal, and health all in one place.</div>
+        <div class="pricing-badge" style="background:transparent;border:1px solid var(--border);color:var(--muted);">Business Leaders</div>
+        <div class="pricing-name">Business</div>
+        <div class="pricing-price" id="price-business">$39 <span>one-time</span></div>
+        <div class="pricing-desc">The complete life OS for entrepreneurs and marketplace leaders. Manage your goals, tasks, projects, finances, and habits — all in one connected system.</div>
         <ul class="pricing-list">
           <li>🪞 Who Am I? — identity & personality frameworks</li>
           <li>🎯 Goals & Vision — 6 life lanes + word of the year</li>
-          <li>✅ Master Task List — priorities, filters, categories</li>
+          <li>✅ Master Task List — 8 filtered views by area</li>
+          <li>🚀 Project Hub — Kanban, status & priority</li>
           <li>💰 Budget Tracker — income, expenses, financial goals</li>
-          <li>📔 Daily Journal — prompts, reflections, brain dumps</li>
-          <li>💪 Health & Fitness — workouts, nutrition, wellness</li>
-          <li>Instant Notion access — works with free plan</li>
-        </ul>
-        <a href="https://buy.stripe.com/aFa28qcyW13o9IV4jR6sw00" class="pricing-cta" id="cta-core">Get Core →</a>
-      </div>
-      <div class="pricing-card featured">
-        <div class="pricing-badge">Most Popular</div>
-        <div class="pricing-name">Full System</div>
-        <div class="pricing-price">$39 <span>one-time</span></div>
-        <div class="pricing-desc">All 12 sections. Every tool in the system. Built for people who want the complete picture — and the discipline to maintain it.</div>
-        <ul class="pricing-list">
-          <li>Everything in Core</li>
-          <li>✈️ Travel Hub — trip planning & packing lists</li>
-          <li>📚 Info Vault — books, quotes, resources</li>
-          <li>📅 Calendar — events, deadlines, appointments</li>
+          <li>📔 Daily Journal — prompts & brain dumps</li>
+          <li>💪 Health & Fitness — workouts & wellness</li>
+          <li>📅 Calendar — monthly, weekly & daily views</li>
           <li>🔁 Habit Tracker — 7-day check-in grid</li>
-          <li>🚀 Project Hub — Kanban board, status & priority</li>
-          <li>🔄 Quarterly Review — Maxwell 7-step framework</li>
+          <li>✈️ Travel Hub, 📚 Info Vault, 🔄 Quarterly Review</li>
           <li>All future updates included</li>
+          <li id="addon-line-business" style="display:none;color:var(--gold);">🎥 Training video walkthrough included</li>
         </ul>
-        <a href="https://buy.stripe.com/fZu14m0Qe13odZb03B6sw01" class="pricing-cta" id="cta-full">Get Full System →</a>
+        <a href="YOUR_STRIPE_BUSINESS_LINK" class="pricing-cta" id="cta-business">Get Business →</a>
       </div>
-      <div class="pricing-card" style="border-color:rgba(201,168,76,0.6);background:rgba(201,168,76,0.04);">
-        <div class="pricing-badge" style="background:transparent;border:1px solid var(--gold);color:var(--gold);">Premium</div>
-        <div class="pricing-name">Premium</div>
-        <div class="pricing-price">$49 <span>one-time</span></div>
-        <div class="pricing-desc">Everything in Full System — plus a full video walkthrough and priority support so you actually implement it, not just own it.</div>
+
+      <!-- MINISTRY LEADERS -->
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Ministry Leaders</div>
+        <div class="pricing-name">Ministry</div>
+        <div class="pricing-price" id="price-ministry">$49 <span>one-time</span></div>
+        <div class="pricing-desc">Everything in Business — plus ministry-specific tools for pastors, church planters, and faith leaders who are building a life and a calling at the same time.</div>
         <ul class="pricing-list">
-          <li>Everything in Full System</li>
-          <li>🎥 Full video tutorial — setup & daily implementation</li>
+          <li>Everything in Business</li>
+          <li>⛪ Ministry Task Views — filtered by ministry area</li>
+          <li>🙏 Faith Lane — devotionals, spiritual goals & prayer</li>
+          <li>✝️ APEST Wiring — know how God built you to lead</li>
+          <li>📖 Sermon Notes — capture & organize messages</li>
+          <li>👥 People & Relationships — track who you're investing in</li>
+          <li>🌍 Impact Tracker — missions, giving, legacy goals</li>
           <li>📬 Priority email support</li>
           <li>All future updates included</li>
+          <li id="addon-line-ministry" style="display:none;color:var(--gold);">🎥 Training video walkthrough included</li>
         </ul>
-        <a href="https://buy.stripe.com/fZu3cugPcfYi9IV7w36sw02" class="pricing-cta" id="cta-premium" style="background:var(--gold);color:var(--black);">Get Premium →</a>
+        <a href="YOUR_STRIPE_MINISTRY_LINK" class="pricing-cta" id="cta-ministry">Get Ministry →</a>
       </div>
+
     </div>
     <p style="font-size: 13px; color: var(--muted); margin-top: 24px;">Requires a free Notion account. Works on desktop, tablet, and mobile.</p>
   </div>
 </section>
+
+<script>
+  // Stripe payment links — replace with your actual links
+  const LINKS = {
+    business:       'YOUR_STRIPE_BUSINESS_LINK',
+    businessVideo:  'YOUR_STRIPE_BUSINESS_VIDEO_LINK',
+    ministry:       'YOUR_STRIPE_MINISTRY_LINK',
+    ministryVideo:  'YOUR_STRIPE_MINISTRY_VIDEO_LINK',
+  };
+
+  let addonActive = false;
+
+  function toggleAddon() {
+    addonActive = !addonActive;
+    const check    = document.getElementById('addon-check');
+    const inner    = document.getElementById('addon-check-inner');
+    const toggle   = document.getElementById('addon-toggle');
+
+    check.style.background      = addonActive ? 'var(--gold)' : 'transparent';
+    check.style.borderColor     = addonActive ? 'var(--gold)' : 'var(--border)';
+    inner.style.display         = addonActive ? 'block' : 'none';
+    toggle.style.borderColor    = addonActive ? 'var(--gold)' : 'var(--border)';
+
+    document.getElementById('price-business').innerHTML  = addonActive ? '$53 <span>one-time</span>' : '$39 <span>one-time</span>';
+    document.getElementById('price-ministry').innerHTML  = addonActive ? '$63 <span>one-time</span>' : '$49 <span>one-time</span>';
+
+    document.getElementById('cta-business').href  = addonActive ? LINKS.businessVideo  : LINKS.business;
+    document.getElementById('cta-ministry').href  = addonActive ? LINKS.ministryVideo  : LINKS.ministry;
+
+    document.getElementById('addon-line-business').style.display = addonActive ? 'flex' : 'none';
+    document.getElementById('addon-line-ministry').style.display  = addonActive ? 'flex' : 'none';
+  }
+</script>
 
 
 <!-- FAQ -->
