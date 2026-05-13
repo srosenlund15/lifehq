@@ -40,7 +40,19 @@
       --radius: 12px;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    /* ── ACCESSIBILITY: focus styles ── */
+    :focus { outline: none; }
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+    .pricing-cta:focus-visible, .btn-primary:focus-visible, .btn-secondary:focus-visible,
+    .nav-cta:focus-visible, .email-form button:focus-visible {
+      outline-offset: 4px;
+    }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -99,7 +111,7 @@
     }
     .hero h1 {
       font-size: clamp(42px, 7vw, 80px);
-      font-weight: 900; line-height: 1.05; letter-spacing: -2px;
+      font-weight: 900; line-height: 1.05; letter-spacing: -0.04em;
       max-width: 900px; margin-bottom: 24px;
     }
     .hero h1 em {
@@ -222,7 +234,7 @@
     }
     .section-title {
       font-size: clamp(32px, 5vw, 52px);
-      font-weight: 900; line-height: 1.1; letter-spacing: -1.5px;
+      font-weight: 900; line-height: 1.1; letter-spacing: -0.03em;
       margin-bottom: 20px;
     }
     .section-title em {
@@ -267,11 +279,18 @@
       border: 1px solid var(--border);
       border-radius: var(--radius); padding: 24px;
       transition: border-color 0.2s, transform 0.2s;
+      position: relative;
     }
     .feature-card:hover { border-color: var(--gold); transform: translateY(-2px); }
     .feature-icon { font-size: 28px; margin-bottom: 14px; }
     .feature-name { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
     .feature-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .feature-tier-badge {
+      position: absolute; top: 16px; right: 16px;
+      background: var(--gold); color: var(--black);
+      font-size: 9px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 100px;
+    }
 
     /* ── WHO IT'S FOR ── */
     .for-section { background: var(--surface); }
@@ -361,8 +380,11 @@
 
     /* ── PRICING ── */
     .pricing-cards {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 24px; margin-top: 60px; max-width: 780px; margin-left: auto; margin-right: auto;
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 24px; margin: 60px auto 0; max-width: 780px;
+    }
+    @media (max-width: 720px) {
+      .pricing-cards { grid-template-columns: 1fr; max-width: 420px; }
     }
     .pricing-card {
       background: var(--surface);
@@ -382,7 +404,7 @@
     }
     .pricing-name { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
     .pricing-price {
-      font-size: 48px; font-weight: 900; letter-spacing: -2px;
+      font-size: 48px; font-weight: 900; letter-spacing: -0.04em;
       margin-bottom: 8px;
     }
     .pricing-price span { font-size: 20px; font-weight: 500; color: var(--muted); }
@@ -420,6 +442,42 @@
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .arrow { transform: rotate(45deg); }
 
+    /* ── CONTACT ── */
+    .contact-section { background: var(--surface); }
+    .contact-card {
+      max-width: 520px; margin: 48px auto 0;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 32px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      transition: border-color 0.2s;
+    }
+    .contact-card:hover { border-color: var(--gold); }
+    .contact-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 56px; height: 56px;
+      background: var(--gold-dim);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 50%;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .contact-card p {
+      font-size: 15px; color: var(--muted); line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .contact-email {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold); color: var(--black);
+      font-size: 15px; font-weight: 700;
+      padding: 12px 24px; border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .contact-email:hover { background: var(--gold-light); transform: translateY(-1px); }
+
     /* ── FINAL CTA ── */
     .final-cta {
       text-align: center; padding: 120px 24px;
@@ -427,7 +485,7 @@
     }
     .final-cta h2 {
       font-size: clamp(36px, 6vw, 64px);
-      font-weight: 900; letter-spacing: -2px; line-height: 1.05;
+      font-weight: 900; letter-spacing: -0.04em; line-height: 1.05;
       margin-bottom: 24px;
     }
     .final-cta h2 em {
@@ -450,11 +508,42 @@
     .footer-links a:hover { color: var(--gold); }
     .footer-copy { color: var(--muted); font-size: 13px; width: 100%; text-align: center; padding-top: 20px; border-top: 1px solid var(--border); }
 
+    /* ── MOBILE DASHBOARD TABS ── */
+    .dash-mobile-tabs { display: none; }
+    .dash-chip {
+      flex-shrink: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-size: 12px; font-weight: 600;
+      padding: 8px 14px; border-radius: 100px;
+      white-space: nowrap; cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s;
+    }
+    .dash-chip.active {
+      background: var(--gold-dim);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 14px 20px; }
       .dashboard-grid { grid-template-columns: 1fr; }
       .sidebar { display: none; }
+      .dash-mobile-tabs {
+        display: flex;
+        gap: 6px;
+        overflow-x: auto;
+        padding: 12px 16px;
+        background: var(--card);
+        border-bottom: 1px solid var(--border);
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+      .dash-mobile-tabs::-webkit-scrollbar { display: none; }
+      .main-content { padding: 20px; }
       .problem-grid { grid-template-columns: 1fr; gap: 40px; }
       .problem-divider { display: none; }
       .diff-inner { grid-template-columns: 1fr; gap: 48px; }
@@ -488,58 +577,395 @@
 </section>
 
 <!-- DASHBOARD MOCKUP -->
+<style>
+  .peek-label { font-size:10px; text-transform:uppercase; letter-spacing:1.5px; color:#666; font-weight:700; margin-bottom:10px; }
+  .peek-table { width:100%; border-collapse:collapse; font-size:12px; }
+  .peek-table th { text-align:left; color:#666; font-weight:600; padding:4px 8px; border-bottom:1px solid #2a2a2a; font-size:11px; }
+  .peek-table td { padding:5px 8px; border-bottom:1px solid #1e1e1e; color:#ccc; }
+  .peek-tag { display:inline-block; padding:2px 8px; border-radius:100px; font-size:10px; font-weight:700; }
+  .peek-tag.red { background:rgba(239,68,68,0.15); color:#ef4444; }
+  .peek-tag.yellow { background:rgba(234,179,8,0.15); color:#eab308; }
+  .peek-tag.green { background:rgba(34,197,94,0.15); color:#22c55e; }
+  .peek-tag.blue { background:rgba(59,130,246,0.15); color:#3b82f6; }
+  .peek-tag.purple { background:rgba(168,85,247,0.15); color:#a855f7; }
+  .peek-tag.gold { background:rgba(201,168,76,0.15); color:#c9a84c; }
+  .peek-progress { background:#1a1a1a; border-radius:100px; height:6px; overflow:hidden; }
+  .peek-progress-fill { height:100%; background:#c9a84c; border-radius:100px; }
+  .peek-lane { display:flex; align-items:center; gap:10px; padding:6px 0; border-bottom:1px solid #1e1e1e; font-size:12px; }
+  .peek-lane-name { width:90px; color:#ccc; flex-shrink:0; }
+  .peek-lane-bar { flex:1; }
+  .peek-lane-score { color:#c9a84c; font-weight:700; font-size:11px; width:24px; text-align:right; }
+  .peek-habit-grid { display:grid; grid-template-columns:120px repeat(7,1fr); gap:4px; font-size:11px; }
+  .peek-habit-grid .day-header { text-align:center; color:#555; font-weight:600; }
+  .peek-habit-grid .habit-name { color:#ccc; display:flex; align-items:center; }
+  .peek-habit-cell { width:100%; aspect-ratio:1; border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:10px; }
+  .peek-habit-cell.done { background:rgba(201,168,76,0.25); color:#c9a84c; }
+  .peek-habit-cell.skip { background:#1a1a1a; color:#333; }
+  .peek-kanban { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+  .peek-col-title { font-size:10px; text-transform:uppercase; letter-spacing:1px; color:#666; font-weight:700; margin-bottom:6px; }
+  .peek-card { background:#1a1a1a; border:1px solid #2a2a2a; border-radius:6px; padding:8px; margin-bottom:6px; font-size:11px; color:#ccc; }
+  .peek-card-title { font-weight:600; color:#f5f4ef; margin-bottom:4px; }
+  .sidebar-item { cursor:pointer; }
+  .sidebar-item:hover { background:rgba(201,168,76,0.08); color:#f5f4ef; }
+</style>
+
 <div class="dashboard-wrap">
   <div class="dashboard-frame">
     <div class="frame-bar">
       <div class="dot dot-r"></div>
       <div class="dot dot-y"></div>
       <div class="dot dot-g"></div>
-      <div class="frame-title">Life HQ — Home Dashboard</div>
+      <div class="frame-title" id="frame-title">Life HQ — Command Center</div>
+    </div>
+    <!-- Mobile-only horizontal tab nav (mirrors sidebar) -->
+    <div class="dash-mobile-tabs" aria-label="Dashboard sections">
+      <button class="dash-chip active" onclick="showMobile('home', this)">🧭 Command</button>
+      <button class="dash-chip" onclick="showMobile('whoami', this)">🪞 Who Am I?</button>
+      <button class="dash-chip" onclick="showMobile('goals', this)">🎯 Goals</button>
+      <button class="dash-chip" onclick="showMobile('tasks', this)">✅ Tasks</button>
+      <button class="dash-chip" onclick="showMobile('budget', this)">💰 Financial</button>
+      <button class="dash-chip" onclick="showMobile('journal', this)">📔 Journal</button>
+      <button class="dash-chip" onclick="showMobile('travel', this)">✈️ Travel</button>
+      <button class="dash-chip" onclick="showMobile('vault', this)">📚 Vault</button>
+      <button class="dash-chip" onclick="showMobile('review', this)">🔄 Reviews</button>
+      <button class="dash-chip" onclick="showMobile('health', this)">💪 Health</button>
+      <button class="dash-chip" onclick="showMobile('habits', this)">🔁 Habits</button>
+      <button class="dash-chip" onclick="showMobile('projects', this)">🚀 Projects</button>
+      <button class="dash-chip" onclick="showMobile('subscriptions', this)">💳 Subs</button>
     </div>
     <div class="dashboard-grid">
       <div class="sidebar">
         <div class="sidebar-section">Navigation</div>
-        <div class="sidebar-item active"><span class="icon">🏠</span> Home</div>
-        <div class="sidebar-item"><span class="icon">🪞</span> Who Am I?</div>
-        <div class="sidebar-item"><span class="icon">🎯</span> Goals & Vision</div>
-        <div class="sidebar-item"><span class="icon">✅</span> Master Tasks</div>
-        <div class="sidebar-item"><span class="icon">💰</span> Budget</div>
-        <div class="sidebar-item"><span class="icon">📔</span> Daily Journal</div>
-        <div class="sidebar-item"><span class="icon">💪</span> Health</div>
-        <div class="sidebar-item"><span class="icon">✈️</span> Travel Hub</div>
-        <div class="sidebar-item"><span class="icon">📚</span> Info Vault</div>
-        <div class="sidebar-item"><span class="icon">📅</span> Calendar</div>
-        <div class="sidebar-item"><span class="icon">🔁</span> Habit Tracker</div>
-        <div class="sidebar-item"><span class="icon">🚀</span> Project Hub</div>
-        <div class="sidebar-item"><span class="icon">🔄</span> Quarterly Review</div>
+        <div class="sidebar-item active" onclick="showSection('home',this)"><span class="icon">🧭</span> Command Center</div>
+        <div class="sidebar-item" onclick="showSection('whoami',this)"><span class="icon">🪞</span> Who Am I?</div>
+        <div class="sidebar-item" onclick="showSection('goals',this)"><span class="icon">🎯</span> Goals & Vision</div>
+        <div class="sidebar-item" onclick="showSection('tasks',this)"><span class="icon">✅</span> Master Tasks</div>
+        <div class="sidebar-item" onclick="showSection('budget',this)"><span class="icon">💰</span> Financial Planner</div>
+        <div class="sidebar-item" onclick="showSection('journal',this)"><span class="icon">📔</span> Journal</div>
+        <div class="sidebar-item" onclick="showSection('travel',this)"><span class="icon">✈️</span> Travel Hub</div>
+        <div class="sidebar-item" onclick="showSection('vault',this)"><span class="icon">📚</span> Info Vault</div>
+        <div class="sidebar-item" onclick="showSection('review',this)"><span class="icon">🔄</span> Quarterly Reviews</div>
+        <div class="sidebar-item" onclick="showSection('health',this)"><span class="icon">💪</span> Health & Fitness</div>
+        <div class="sidebar-item" onclick="showSection('habits',this)"><span class="icon">🔁</span> Habit Tracker</div>
+        <div class="sidebar-item" onclick="showSection('projects',this)"><span class="icon">🚀</span> Project Hub</div>
+        <div class="sidebar-item" onclick="showSection('subscriptions',this)"><span class="icon">💳</span> Subscriptions</div>
       </div>
-      <div class="main-content">
-        <div class="main-title">Welcome back, Alex 👋</div>
-        <div class="main-sub">Q2 2026 · Week 17 · Let's build something that matters.</div>
-        <div class="stats-row">
-          <div class="stat-card">
-            <div class="stat-label">Active Goals</div>
-            <div class="stat-value gold">6</div>
+      <div class="main-content" id="dash-main">
+
+        <!-- COMMAND CENTER -->
+        <div id="sec-home">
+          <div class="main-title">🧭 Command Center</div>
+          <div class="main-sub">Q2 2026 · Week 17 · Capture, queue, execute.</div>
+          <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:8px;padding:10px 12px;margin:12px 0 16px;display:flex;align-items:center;gap:8px;">
+            <span style="color:#666;font-size:14px;">+</span>
+            <span style="color:#666;font-size:12px;font-style:italic;">Add a task or capture a thought…</span>
           </div>
-          <div class="stat-card">
-            <div class="stat-label">Tasks This Week</div>
-            <div class="stat-value">9</div>
+          <div class="stats-row">
+            <div class="stat-card"><div class="stat-label">Active Goals</div><div class="stat-value gold">6</div></div>
+            <div class="stat-card"><div class="stat-label">Tasks This Week</div><div class="stat-value">9</div></div>
+            <div class="stat-card"><div class="stat-label">Habit Streak</div><div class="stat-value gold">21d</div></div>
           </div>
-          <div class="stat-card">
-            <div class="stat-label">Habit Streak</div>
-            <div class="stat-value gold">21d</div>
+          <div class="quick-nav">
+            <div class="nav-tile" onclick="showSection('journal',document.querySelectorAll('.sidebar-item')[5])"><span>🙏</span> Morning Devotional</div>
+            <div class="nav-tile" onclick="showSection('review',document.querySelectorAll('.sidebar-item')[8])"><span>🔄</span> Q2 Review Due</div>
+            <div class="nav-tile" onclick="showSection('budget',document.querySelectorAll('.sidebar-item')[4])"><span>💰</span> Financial Check</div>
+            <div class="nav-tile" onclick="showSection('projects',document.querySelectorAll('.sidebar-item')[11])"><span>🚀</span> Ministry Launch</div>
           </div>
         </div>
-        <div class="quick-nav">
-          <div class="nav-tile"><span>🙏</span> Morning Devotional</div>
-          <div class="nav-tile"><span>🔄</span> Q2 Review Due</div>
-          <div class="nav-tile"><span>💰</span> Budget Check</div>
-          <div class="nav-tile"><span>🚀</span> Ministry Launch</div>
+
+        <!-- WHO AM I -->
+        <div id="sec-whoami" style="display:none;">
+          <div class="main-title">🪞 Who Am I?</div>
+          <div class="main-sub">Your identity foundation — know yourself before you lead others.</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;">
+            <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:8px;padding:12px;">
+              <div class="peek-label">Core Identity</div>
+              <div style="font-size:12px;color:#ccc;line-height:1.8;">
+                <div>📖 <strong style="color:#f5f4ef;">Life Verse:</strong> Jer 29:11</div>
+                <div>🎯 <strong style="color:#f5f4ef;">Word of the Year:</strong> Build</div>
+                <div>✝️ <strong style="color:#f5f4ef;">APEST:</strong> Prophet / Teacher</div>
+                <div>🧠 <strong style="color:#f5f4ef;">MBTI:</strong> ENTJ</div>
+                <div>🔢 <strong style="color:#f5f4ef;">Enneagram:</strong> Type 3w2</div>
+              </div>
+            </div>
+            <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:8px;padding:12px;">
+              <div class="peek-label">Top Strengths</div>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;">
+                <span class="peek-tag gold">Strategic</span>
+                <span class="peek-tag gold">Achiever</span>
+                <span class="peek-tag gold">Activator</span>
+                <span class="peek-tag gold">Futuristic</span>
+                <span class="peek-tag gold">Maximizer</span>
+              </div>
+              <div class="peek-label" style="margin-top:12px;">Core Values</div>
+              <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;">
+                <span class="peek-tag blue">Faith</span>
+                <span class="peek-tag blue">Family</span>
+                <span class="peek-tag blue">Excellence</span>
+                <span class="peek-tag blue">Legacy</span>
+              </div>
+            </div>
+          </div>
+          <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:8px;padding:12px;margin-top:10px;">
+            <div class="peek-label">Personal Mission Statement</div>
+            <div style="font-size:13px;color:#c9a84c;font-style:italic;line-height:1.6;">"To build systems and lead people that help others walk fully in their God-given purpose."</div>
+          </div>
         </div>
+
+        <!-- GOALS -->
+        <div id="sec-goals" style="display:none;">
+          <div class="main-title">🎯 Goals & Vision</div>
+          <div class="main-sub">6 Life Lanes · Q2 2026 Focus</div>
+          <div style="margin-top:12px;">
+            <div class="peek-label">Life Lane Scores — Last Quarter</div>
+            <div class="peek-lane"><div class="peek-lane-name">🙏 Faith</div><div class="peek-lane-bar"><div class="peek-progress"><div class="peek-progress-fill" style="width:80%"></div></div></div><div class="peek-lane-score">8</div></div>
+            <div class="peek-lane"><div class="peek-lane-name">👨‍👩‍👧 Family</div><div class="peek-lane-bar"><div class="peek-progress"><div class="peek-progress-fill" style="width:60%"></div></div></div><div class="peek-lane-score">6</div></div>
+            <div class="peek-lane"><div class="peek-lane-name">💪 Health</div><div class="peek-lane-bar"><div class="peek-progress"><div class="peek-progress-fill" style="width:70%"></div></div></div><div class="peek-lane-score">7</div></div>
+            <div class="peek-lane"><div class="peek-lane-name">🌍 Impact</div><div class="peek-lane-bar"><div class="peek-progress"><div class="peek-progress-fill" style="width:75%"></div></div></div><div class="peek-lane-score">7.5</div></div>
+            <div class="peek-lane"><div class="peek-lane-name">💼 Business</div><div class="peek-lane-bar"><div class="peek-progress"><div class="peek-progress-fill" style="width:85%"></div></div></div><div class="peek-lane-score">8.5</div></div>
+            <div class="peek-lane"><div class="peek-lane-name">💰 Finance</div><div class="peek-lane-bar"><div class="peek-progress"><div class="peek-progress-fill" style="width:50%"></div></div></div><div class="peek-lane-score">5</div></div>
+          </div>
+          <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:8px;padding:10px;margin-top:10px;font-size:12px;color:#888;">
+            ⬇️ <span style="color:#f5f4ef;">Finance is your lowest lane.</span> That's your first move this quarter.
+          </div>
+        </div>
+
+        <!-- TASKS -->
+        <div id="sec-tasks" style="display:none;">
+          <div class="main-title">✅ Master Task List</div>
+          <div class="main-sub">All tasks · Filtered by area</div>
+          <div style="display:flex;gap:6px;margin:10px 0;flex-wrap:wrap;">
+            <span class="peek-tag gold" style="cursor:pointer;">All</span>
+            <span class="peek-tag blue" style="cursor:pointer;">Ministry</span>
+            <span class="peek-tag purple" style="cursor:pointer;">Business</span>
+            <span class="peek-tag green" style="cursor:pointer;">Personal</span>
+            <span class="peek-tag yellow" style="cursor:pointer;">Finance</span>
+            <span class="peek-tag red" style="cursor:pointer;">🔴 High Priority</span>
+          </div>
+          <table class="peek-table">
+            <thead><tr><th>Task</th><th>Area</th><th>Priority</th><th>Status</th><th>Due</th></tr></thead>
+            <tbody>
+              <tr><td>Finalize Sunday sermon outline</td><td><span class="peek-tag blue">Ministry</span></td><td><span class="peek-tag red">High</span></td><td><span class="peek-tag yellow">In Progress</span></td><td>Apr 27</td></tr>
+              <tr><td>Review Q2 financial goals</td><td><span class="peek-tag yellow">Finance</span></td><td><span class="peek-tag red">High</span></td><td><span class="peek-tag gold">To Do</span></td><td>Apr 28</td></tr>
+              <tr><td>Launch Life HQ Business tier</td><td><span class="peek-tag purple">Business</span></td><td><span class="peek-tag red">High</span></td><td><span class="peek-tag yellow">In Progress</span></td><td>Apr 30</td></tr>
+              <tr><td>Plan leadership training session</td><td><span class="peek-tag blue">Ministry</span></td><td><span class="peek-tag yellow">Medium</span></td><td><span class="peek-tag gold">To Do</span></td><td>May 3</td></tr>
+              <tr><td>Weekly workout — upper body</td><td><span class="peek-tag green">Health</span></td><td><span class="peek-tag green">Low</span></td><td><span class="peek-tag green">Done</span></td><td>Apr 26</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- BUDGET -->
+        <div id="sec-budget" style="display:none;">
+          <div class="main-title">💰 Financial Goal Planner</div>
+          <div class="main-sub">April 2026 · Monthly Overview</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0;">
+            <div class="stat-card"><div class="stat-label">Income</div><div class="stat-value" style="font-size:18px;color:#22c55e;">$6,400</div></div>
+            <div class="stat-card"><div class="stat-label">Expenses</div><div class="stat-value" style="font-size:18px;color:#ef4444;">$4,210</div></div>
+            <div class="stat-card"><div class="stat-label">Saved</div><div class="stat-value gold" style="font-size:18px;">$2,190</div></div>
+          </div>
+          <table class="peek-table">
+            <thead><tr><th>Category</th><th>Budgeted</th><th>Actual</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Tithe & Giving</td><td>$640</td><td>$640</td><td><span class="peek-tag green">On Track</span></td></tr>
+              <tr><td>Housing</td><td>$1,500</td><td>$1,500</td><td><span class="peek-tag green">On Track</span></td></tr>
+              <tr><td>Food & Groceries</td><td>$600</td><td>$720</td><td><span class="peek-tag red">Over</span></td></tr>
+              <tr><td>Business Expenses</td><td>$400</td><td>$310</td><td><span class="peek-tag green">Under</span></td></tr>
+              <tr><td>Emergency Fund</td><td>$500</td><td>$500</td><td><span class="peek-tag green">On Track</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- JOURNAL -->
+        <div id="sec-journal" style="display:none;">
+          <div class="main-title">📔 Journal</div>
+          <div class="main-sub">Monday, April 27, 2026</div>
+          <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:8px;padding:14px;margin-top:12px;">
+            <div class="peek-label">Morning Prompts</div>
+            <div style="font-size:12px;color:#ccc;line-height:1.9;">
+              <div>🙏 <em style="color:#888;">What's one thing I'm grateful for?</em><br><span style="color:#f5f4ef;margin-left:20px;">The clarity God gave me in prayer this morning about the ministry direction.</span></div>
+              <div style="margin-top:8px;">🎯 <em style="color:#888;">What's my one big thing today?</em><br><span style="color:#f5f4ef;margin-left:20px;">Finalize the sermon outline and block time for the team call.</span></div>
+              <div style="margin-top:8px;">⚡ <em style="color:#888;">Energy level (1–10):</em> <span class="peek-tag gold">8</span></div>
+            </div>
+          </div>
+          <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:8px;padding:14px;margin-top:8px;">
+            <div class="peek-label">Brain Dump</div>
+            <div style="font-size:12px;color:#888;font-style:italic;">Need to follow up with Jordan about the event logistics. Also want to revisit the Q2 financial goals before end of month...</div>
+          </div>
+        </div>
+
+        <!-- HEALTH -->
+        <div id="sec-health" style="display:none;">
+          <div class="main-title">💪 Health & Fitness</div>
+          <div class="main-sub">Week of Apr 21–27 · Current Streak: 21 days</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0;">
+            <div class="stat-card"><div class="stat-label">Workouts</div><div class="stat-value gold">4/5</div></div>
+            <div class="stat-card"><div class="stat-label">Water Goal</div><div class="stat-value" style="color:#3b82f6;">6/8</div></div>
+            <div class="stat-card"><div class="stat-label">Sleep Avg</div><div class="stat-value">7.2h</div></div>
+          </div>
+          <table class="peek-table">
+            <thead><tr><th>Date</th><th>Workout</th><th>Duration</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>Apr 27</td><td>Upper Body</td><td>45 min</td><td>New PR on bench</td></tr>
+              <tr><td>Apr 25</td><td>Run</td><td>30 min</td><td>3.2 miles, felt strong</td></tr>
+              <tr><td>Apr 24</td><td>Lower Body</td><td>50 min</td><td>—</td></tr>
+              <tr><td>Apr 22</td><td>HIIT</td><td>25 min</td><td>Core focus</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- TRAVEL -->
+        <div id="sec-travel" style="display:none;">
+          <div class="main-title">✈️ Travel Hub</div>
+          <div class="main-sub">Upcoming Trips & Missions</div>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px;">
+            <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:8px;padding:12px;display:flex;justify-content:space-between;align-items:center;">
+              <div><div style="font-size:13px;font-weight:700;color:#f5f4ef;">🌍 Guatemala Missions Trip</div><div style="font-size:11px;color:#888;margin-top:2px;">Jun 12–19, 2026 · Team of 8</div></div>
+              <span class="peek-tag yellow">Planning</span>
+            </div>
+            <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:8px;padding:12px;display:flex;justify-content:space-between;align-items:center;">
+              <div><div style="font-size:13px;font-weight:700;color:#f5f4ef;">🏖️ Family Vacation — Florida</div><div style="font-size:11px;color:#888;margin-top:2px;">Jul 4–10, 2026 · Family</div></div>
+              <span class="peek-tag green">Booked</span>
+            </div>
+            <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:8px;padding:12px;display:flex;justify-content:space-between;align-items:center;">
+              <div><div style="font-size:13px;font-weight:700;color:#f5f4ef;">🎤 Leadership Conference — Dallas</div><div style="font-size:11px;color:#888;margin-top:2px;">Sep 18–20, 2026 · Speaking</div></div>
+              <span class="peek-tag blue">Confirmed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- VAULT -->
+        <div id="sec-vault" style="display:none;">
+          <div class="main-title">📚 Info Vault</div>
+          <div class="main-sub">Books · Quotes · Resources</div>
+          <table class="peek-table" style="margin-top:12px;">
+            <thead><tr><th>Title</th><th>Type</th><th>Status</th><th>Rating</th></tr></thead>
+            <tbody>
+              <tr><td>The 21 Irrefutable Laws of Leadership</td><td><span class="peek-tag blue">Book</span></td><td><span class="peek-tag green">Read</span></td><td>⭐⭐⭐⭐⭐</td></tr>
+              <tr><td>Atomic Habits</td><td><span class="peek-tag blue">Book</span></td><td><span class="peek-tag green">Read</span></td><td>⭐⭐⭐⭐⭐</td></tr>
+              <tr><td>Building a StoryBrand</td><td><span class="peek-tag blue">Book</span></td><td><span class="peek-tag yellow">In Progress</span></td><td>⭐⭐⭐⭐</td></tr>
+              <tr><td>"Vision without execution is hallucination."</td><td><span class="peek-tag purple">Quote</span></td><td>—</td><td>—</td></tr>
+              <tr><td>Life HQ Notion Setup Guide</td><td><span class="peek-tag gold">Resource</span></td><td><span class="peek-tag green">Saved</span></td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- SUBSCRIPTIONS -->
+        <div id="sec-subscriptions" style="display:none;">
+          <div class="main-title">💳 Subscription Tracker</div>
+          <div class="main-sub">Monthly subscriptions · April 2026</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0;">
+            <div class="stat-card"><div class="stat-label">Monthly</div><div class="stat-value" style="font-size:18px;color:#ef4444;">$184</div></div>
+            <div class="stat-card"><div class="stat-label">Annualized</div><div class="stat-value gold" style="font-size:18px;">$2,208</div></div>
+            <div class="stat-card"><div class="stat-label">Active</div><div class="stat-value">9</div></div>
+          </div>
+          <table class="peek-table">
+            <thead><tr><th>Service</th><th>Cost</th><th>Renews</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Notion</td><td>Free</td><td>—</td><td><span class="peek-tag green">Active</span></td></tr>
+              <tr><td>Adobe Creative Cloud</td><td>$59.99</td><td>May 14</td><td><span class="peek-tag green">Active</span></td></tr>
+              <tr><td>Zoom Pro</td><td>$14.99</td><td>May 22</td><td><span class="peek-tag yellow">Review</span></td></tr>
+              <tr><td>Spotify Family</td><td>$16.99</td><td>May 28</td><td><span class="peek-tag green">Active</span></td></tr>
+              <tr><td>ChatGPT Plus</td><td>$20.00</td><td>Jun 3</td><td><span class="peek-tag green">Active</span></td></tr>
+              <tr><td>Canva Pro</td><td>$14.99</td><td>Jun 7</td><td><span class="peek-tag red">Cancel</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- HABITS -->
+        <div id="sec-habits" style="display:none;">
+          <div class="main-title">🔁 Habit Tracker</div>
+          <div class="main-sub">Week of Apr 21–27 · 21-Day Streak</div>
+          <div class="peek-habit-grid" style="margin-top:14px;">
+            <div></div>
+            <div class="day-header">M</div><div class="day-header">T</div><div class="day-header">W</div><div class="day-header">T</div><div class="day-header">F</div><div class="day-header">S</div><div class="day-header">S</div>
+            <div class="habit-name">🙏 Devotional</div>
+            <div class="peek-habit-cell done">✓</div><div class="peek-habit-cell done">✓</div><div class="peek-habit-cell done">✓</div><div class="peek-habit-cell done">✓</div><div class="peek-habit-cell done">✓</div><div class="peek-habit-cell done">✓</div><div class="peek-habit-cell done">✓</div>
+            <div class="habit-name">💪 Workout</div>
+            <div class="peek-habit-cell done">✓</div><div class="peek-habit-cell skip">—</div><div class="peek-habit-cell done">✓</div><div class="peek-habit-cell done">✓</div><div class="peek-habit-cell skip">—</div><div class="peek-habit-cell done">✓</div><div class="peek-habit-cell done">✓</div>
+            <div class="habit-name">📖 Reading</div>
+            <div class="peek-habit-cell done">✓</div><div class="peek-habit-cell done">✓</div><div class="peek-habit-cell skip">—</div><div class="peek-habit-cell done">✓</div><div class="peek-habit-cell done">✓</div><div class="peek-habit-cell done">✓</div><div class="peek-habit-cell done">✓</div>
+            <div class="habit-name">💧 Water</div>
+            <div class="peek-habit-cell done">✓</div><div class="peek-habit-cell done">✓</div><div class="peek-habit-cell done">✓</div><div class="peek-habit-cell skip">—</div><div class="peek-habit-cell done">✓</div><div class="peek-habit-cell done">✓</div><div class="peek-habit-cell done">✓</div>
+          </div>
+        </div>
+
+        <!-- PROJECTS -->
+        <div id="sec-projects" style="display:none;">
+          <div class="main-title">🚀 Project Hub</div>
+          <div class="main-sub">Active Projects · Kanban View</div>
+          <div class="peek-kanban" style="margin-top:12px;">
+            <div>
+              <div class="peek-col-title">📋 To Do</div>
+              <div class="peek-card"><div class="peek-card-title">Podcast Launch</div><span class="peek-tag blue">Ministry</span> <span class="peek-tag yellow">Medium</span></div>
+              <div class="peek-card"><div class="peek-card-title">Email List Funnel</div><span class="peek-tag purple">Business</span> <span class="peek-tag red">High</span></div>
+            </div>
+            <div>
+              <div class="peek-col-title">⚡ In Progress</div>
+              <div class="peek-card"><div class="peek-card-title">Life HQ Website</div><span class="peek-tag purple">Business</span> <span class="peek-tag red">High</span></div>
+              <div class="peek-card"><div class="peek-card-title">Fall Series Prep</div><span class="peek-tag blue">Ministry</span> <span class="peek-tag yellow">Medium</span></div>
+            </div>
+            <div>
+              <div class="peek-col-title">✅ Done</div>
+              <div class="peek-card"><div class="peek-card-title">Notion Template Build</div><span class="peek-tag purple">Business</span> <span class="peek-tag green">Low</span></div>
+              <div class="peek-card"><div class="peek-card-title">Q1 Quarterly Review</div><span class="peek-tag green">Personal</span> <span class="peek-tag green">Low</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- QUARTERLY REVIEW -->
+        <div id="sec-review" style="display:none;">
+          <div class="main-title">🔄 Quarterly Reviews</div>
+          <div class="main-sub">Q2 2026 · Maxwell 7-Step Framework</div>
+          <div style="display:flex;flex-direction:column;gap:7px;margin-top:12px;">
+            <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:6px;padding:10px;font-size:12px;">
+              <span style="color:#c9a84c;font-weight:700;">Step 1 · Gather & Review</span>
+              <div style="color:#888;margin-top:4px;">Pulled together wins, losses, and unexpected moments from Q1.</div>
+            </div>
+            <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:6px;padding:10px;font-size:12px;">
+              <span style="color:#c9a84c;font-weight:700;">Step 2 · Three Questions</span>
+              <div style="color:#888;margin-top:4px;">What did I feel? What do I know? What should I do?</div>
+            </div>
+            <div style="background:#1a1a1a;border:1px solid #c9a84c;border-radius:6px;padding:10px;font-size:12px;">
+              <span style="color:#c9a84c;font-weight:700;">Step 3 · Score Your 6 Lanes ← Current</span>
+              <div style="color:#f5f4ef;margin-top:4px;">Finance scored lowest at 5/10. This is your first move Q2.</div>
+            </div>
+            <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:6px;padding:10px;font-size:12px;opacity:0.5;">
+              <span style="color:#666;font-weight:700;">Step 4–7 · Intentions, Lessons, Goals, Action</span>
+              <div style="color:#555;margin-top:4px;">Complete Step 3 first.</div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </div>
+
+<script>
+function showSection(id, el) {
+  document.querySelectorAll('[id^="sec-"]').forEach(s => s.style.display = 'none');
+  document.getElementById('sec-' + id).style.display = 'block';
+  document.querySelectorAll('.sidebar-item').forEach(s => s.classList.remove('active'));
+  if (el && el.classList.contains('sidebar-item')) el.classList.add('active');
+  const titles = {
+    home:'Life HQ — Command Center', whoami:'Life HQ — Who Am I?',
+    goals:'Life HQ — Goals & Vision', tasks:'Life HQ — Master Task List',
+    budget:'Life HQ — Financial Goal Planner', journal:'Life HQ — Journal',
+    travel:'Life HQ — Travel Hub', vault:'Life HQ — Info Vault',
+    review:'Life HQ — Quarterly Reviews', health:'Life HQ — Health & Fitness',
+    habits:'Life HQ — Habit Tracker', projects:'Life HQ — Project Hub',
+    subscriptions:'Life HQ — Subscription Tracker'
+  };
+  document.getElementById('frame-title').textContent = titles[id] || 'Life HQ';
+}
+
+// Mobile chip-nav wrapper — toggles chip active state and reuses showSection.
+function showMobile(id, chipEl) {
+  showSection(id, null);
+  document.querySelectorAll('.dash-chip').forEach(c => c.classList.remove('active'));
+  if (chipEl) chipEl.classList.add('active');
+}
+</script>
 
 
 <!-- PROBLEM -->
@@ -580,13 +1006,18 @@
 <section id="features">
   <div class="section-inner">
     <div class="section-eyebrow">What's Inside</div>
-    <h2 class="section-title">12 sections. <em>Zero</em> bloat.</h2>
+    <h2 class="section-title">15 sections. <em>Zero</em> bloat.</h2>
     <p class="section-desc">Every section is purpose-built. Nothing is included just to look impressive.</p>
     <div class="features-grid">
       <div class="feature-card">
+        <div class="feature-icon">🧭</div>
+        <div class="feature-name">Command Center</div>
+        <div class="feature-desc">Your daily landing page and frictionless inbox. Add tasks, capture stray thoughts, and queue up ideas the moment they hit — so nothing slips and your head stays clear.</div>
+      </div>
+      <div class="feature-card">
         <div class="feature-icon">🪞</div>
         <div class="feature-name">Who Am I?</div>
-        <div class="feature-desc">Your identity foundation. Values, personality, spiritual gifts, Enneagram, MBTI, DISC, CliftonStrengths, and APEST — all in one place. Know yourself first.</div>
+        <div class="feature-desc">Your identity, values, and personality map. Spiritual gifts, Enneagram, MBTI, DISC, CliftonStrengths, and APEST — all in one place. Know yourself first.</div>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🎯</div>
@@ -596,37 +1027,32 @@
       <div class="feature-card">
         <div class="feature-icon">✅</div>
         <div class="feature-name">Master Task List</div>
-        <div class="feature-desc">Every task in one place — with pre-built filtered views by area: Ministry, Business, Personal, Finance, Health, Home, and Travel. Plus a High Priority view for what's urgent now.</div>
+        <div class="feature-desc">Everything you need to do, in one place — with pre-built filtered views by area: Ministry, Business, Personal, Finance, Health, Home, and Travel. Plus a High Priority view for what's urgent now.</div>
       </div>
       <div class="feature-card">
         <div class="feature-icon">💰</div>
-        <div class="feature-name">Budget Tracker</div>
-        <div class="feature-desc">Monthly income, expenses, and financial goals. Simple enough to actually use every month.</div>
+        <div class="feature-name">Financial Goal Planner</div>
+        <div class="feature-desc">Built on the Dave Ramsey Baby Steps framework. Income, expenses, and financial goals tracked with the clarity to actually finish each step.</div>
       </div>
       <div class="feature-card">
         <div class="feature-icon">📔</div>
-        <div class="feature-name">Daily Journal</div>
-        <div class="feature-desc">Morning prompts, evening reflections, and free-form brain dumps. Build the habit of processing your life, not just living it.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">💪</div>
-        <div class="feature-name">Health & Fitness</div>
-        <div class="feature-desc">Workout logs, nutrition tracking, wellness goals. Your body is part of your calling — steward it.</div>
+        <div class="feature-name">Journal</div>
+        <div class="feature-desc">Daily prompts, evening reflections, and free-form brain dumps. Build the habit of processing your life, not just living it.</div>
       </div>
       <div class="feature-card">
         <div class="feature-icon">✈️</div>
         <div class="feature-name">Travel Hub</div>
-        <div class="feature-desc">Trip planning, packing lists, itineraries, and travel notes. Missions trips to mission retreats — all covered.</div>
+        <div class="feature-desc">Trip planning, packing lists, itineraries, and travel notes. Missions trips to family retreats — all covered.</div>
       </div>
       <div class="feature-card">
         <div class="feature-icon">📚</div>
         <div class="feature-name">Info Vault</div>
-        <div class="feature-desc">Books read, favorite quotes, resources, and links worth keeping. Your knowledge base — organized.</div>
+        <div class="feature-desc">Books, quotes, resources, and learning worth keeping. Your knowledge base — organized.</div>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">📅</div>
-        <div class="feature-name">Calendar</div>
-        <div class="feature-desc">Monthly, weekly, and daily views — all built in. Events, appointments, and deadlines organized with categories, recurring options, and same-day list view.</div>
+        <div class="feature-icon">💪</div>
+        <div class="feature-name">Health & Fitness</div>
+        <div class="feature-desc">Fitness goals, workout logs, meals, and progress tracking. Your body is part of your calling — steward it.</div>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🔁</div>
@@ -638,10 +1064,26 @@
         <div class="feature-name">Project Hub</div>
         <div class="feature-desc">All active projects tracked by status, priority, progress %, and next action. Kanban board. Never wonder what's stalled again.</div>
       </div>
+      <div class="feature-card">
+        <div class="feature-icon">💳</div>
+        <div class="feature-name">Subscription Tracker</div>
+        <div class="feature-desc">Track monthly subscriptions, costs, and renewal dates. Stop bleeding money on services you forgot you signed up for — see at a glance what to keep, cancel, or renegotiate.</div>
+      </div>
+      <div class="feature-card" style="border-color: rgba(201,168,76,0.4); background: rgba(201,168,76,0.05);">
+        <span class="feature-tier-badge">Ministry tier</span>
+        <div class="feature-icon">🎤</div>
+        <div class="feature-name" style="color: var(--gold);">Sermon Prep</div>
+        <div class="feature-desc">Sermon outlines, notes, and delivery prep. A full message development pipeline — scripture, big idea, illustrations, application — every sermon organized and retrievable forever.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <div class="feature-name">Leadership Content Prep</div>
+        <div class="feature-desc">Prep every piece of leadership content in one place — talks, seminars, team meetings, proposals, and presentations. From raw idea to fully prepped material, ready when you step up to lead.</div>
+      </div>
       <div class="feature-card" style="border-color: rgba(201,168,76,0.4); background: rgba(201,168,76,0.05);">
         <div class="feature-icon">🔄</div>
-        <div class="feature-name" style="color: var(--gold);">Quarterly Review ✦</div>
-        <div class="feature-desc">Our signature differentiator. A structured 7-step reflection framework inspired by John Maxwell — covering wins, losses, life lane scores, and 90-day intentions. Not a tracker. A growth engine.</div>
+        <div class="feature-name" style="color: var(--gold);">Quarterly Reviews ✦</div>
+        <div class="feature-desc">Our signature differentiator. A John Maxwell–inspired 7-step reflection framework — wins, losses, life lane scores, and 90-day intentions. One entry per quarter, full history preserved. Not a tracker. A growth engine.</div>
       </div>
     </div>
   </div>
@@ -680,7 +1122,7 @@
     <div class="diff-inner">
       <div>
         <div class="section-eyebrow">The Differentiator</div>
-        <h2 class="section-title">The Quarterly Review that <em>changes</em> things.</h2>
+        <h2 class="section-title">The Quarterly Reviews that <em>change</em> things.</h2>
         <p class="section-desc" style="margin-bottom: 0;">Most templates track what you're doing. This one makes sure you're doing the right things — and growing from everything you do.</p>
         <div class="diff-steps">
           <div class="diff-step">
@@ -731,7 +1173,7 @@
               <span>Quarterly Review System</span> <span style="color: var(--muted);">$20–40 courses</span>
             </div>
             <div style="border-top: 1px solid var(--border); margin-top: 8px; padding-top: 12px; display: flex; justify-content: space-between; font-size: 16px; font-weight: 800;">
-              <span>Life HQ Ministry — All of it</span> <span style="color: var(--gold);">$49</span>
+              <span>Life HQ — All of it</span> <span style="color: var(--gold);">$49</span>
             </div>
           </div>
         </div>
@@ -774,25 +1216,28 @@
     </div>
     <p style="font-size:12px;color:var(--muted);margin:8px 0 0;">Step-by-step video showing you how to set up and use every section of Life HQ</p>
 
-    <div class="pricing-cards" style="max-width:780px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));margin-top:40px;">
+    <div class="pricing-cards" style="margin-top:40px;">
 
       <!-- BUSINESS LEADERS -->
       <div class="pricing-card">
         <div class="pricing-badge" style="background:transparent;border:1px solid var(--border);color:var(--muted);">Business Leaders</div>
         <div class="pricing-name">Business</div>
-        <div class="pricing-price" id="price-business">$39 <span>one-time</span></div>
+        <div class="pricing-price" id="price-business">$49 <span>one-time</span></div>
         <div class="pricing-desc">The complete life OS for entrepreneurs and marketplace leaders. Manage your goals, tasks, projects, finances, and habits — all in one connected system.</div>
         <ul class="pricing-list">
-          <li>🪞 Who Am I? — identity & personality frameworks</li>
+          <li>🧭 Command Center — frictionless capture for tasks & ideas</li>
+          <li>🪞 Who Am I? — identity, values & personality map</li>
           <li>🎯 Goals & Vision — 6 life lanes + word of the year</li>
           <li>✅ Master Task List — 8 filtered views by area</li>
-          <li>🚀 Project Hub — Kanban, status & priority</li>
-          <li>💰 Budget Tracker — income, expenses, financial goals</li>
-          <li>📔 Daily Journal — prompts & brain dumps</li>
-          <li>💪 Health & Fitness — workouts & wellness</li>
-          <li>📅 Calendar — monthly, weekly & daily views</li>
+          <li>💰 Financial Goal Planner — Dave Ramsey Baby Steps</li>
+          <li>📔 Journal — prompts, reflections & brain dumps</li>
+          <li>🔄 Quarterly Reviews — Maxwell-inspired 7-step framework</li>
+          <li>💪 Health & Fitness — workouts, meals & progress</li>
           <li>🔁 Habit Tracker — 7-day check-in grid</li>
-          <li>✈️ Travel Hub, 📚 Info Vault, 🔄 Quarterly Review</li>
+          <li>🚀 Project Hub — Kanban, status & priority</li>
+          <li>📋 Leadership Content Prep — talks, meetings, proposals & presentations</li>
+          <li>💳 Subscription Tracker — costs, renewals & control</li>
+          <li>✈️ Travel Hub + 📚 Info Vault</li>
           <li>All future updates included</li>
           <li id="addon-line-business" style="display:none;color:var(--gold);">🎥 Training video walkthrough included</li>
         </ul>
@@ -807,13 +1252,7 @@
         <div class="pricing-desc">Everything in Business — plus ministry-specific tools for pastors, church planters, and faith leaders who are building a life and a calling at the same time.</div>
         <ul class="pricing-list">
           <li>Everything in Business</li>
-          <li>⛪ Ministry Task Views — filtered by ministry area</li>
-          <li>🙏 Faith Lane — devotionals, spiritual goals & prayer</li>
-          <li>✝️ APEST Wiring — know how God built you to lead</li>
-          <li>📖 Sermon Notes — capture & organize messages</li>
-          <li>👥 People & Relationships — track who you're investing in</li>
-          <li>🌍 Impact Tracker — missions, giving, legacy goals</li>
-          <li>📬 Priority email support</li>
+          <li>🎤 Sermon Prep — outlines, notes & delivery prep, fully retrievable</li>
           <li>All future updates included</li>
           <li id="addon-line-ministry" style="display:none;color:var(--gold);">🎥 Training video walkthrough included</li>
         </ul>
@@ -847,7 +1286,7 @@
     inner.style.display         = addonActive ? 'block' : 'none';
     toggle.style.borderColor    = addonActive ? 'var(--gold)' : 'var(--border)';
 
-    document.getElementById('price-business').innerHTML  = addonActive ? '$53 <span>one-time</span>' : '$39 <span>one-time</span>';
+    document.getElementById('price-business').innerHTML  = addonActive ? '$63 <span>one-time</span>' : '$49 <span>one-time</span>';
     document.getElementById('price-ministry').innerHTML  = addonActive ? '$63 <span>one-time</span>' : '$49 <span>one-time</span>';
 
     document.getElementById('cta-business').href  = addonActive ? LINKS.businessVideo  : LINKS.business;
@@ -905,6 +1344,21 @@
 </section>
 
 
+<!-- CONTACT -->
+<section class="contact-section">
+  <div class="section-inner" style="text-align: center;">
+    <div class="section-eyebrow">Get In Touch</div>
+    <h2 class="section-title">Questions? <em>Reach out.</em></h2>
+    <p class="section-desc" style="margin: 0 auto;">We're happy to help — pre-purchase questions, post-purchase setup, partnerships, or feedback.</p>
+    <div class="contact-card">
+      <div class="contact-icon">✉️</div>
+      <p>Drop us a note and we'll get back to you.</p>
+      <a href="mailto:info@lifeheadquarters.co" class="contact-email">info@lifeheadquarters.co</a>
+    </div>
+  </div>
+</section>
+
+
 <!-- FINAL CTA -->
 <section class="final-cta">
   <h2>Stop planning to get organized.<br><em>Just get organized.</em></h2>
@@ -919,7 +1373,7 @@
   <div class="footer-links">
     <a href="#features">Features</a>
     <a href="#pricing">Pricing</a>
-    <a href="mailto:traffickickssales@gmail.com">Contact</a>
+    <a href="mailto:info@lifeheadquarters.co">Contact</a>
   </div>
   <div class="footer-copy">© 2025 Life HQ · Built for driven ministry & marketplace entrepreneurs · Powered by Notion</div>
 </footer>
@@ -950,7 +1404,7 @@
     emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
       to_email: email,
       pdf_link: 'https://lifeheadquarters.co/6-Life-Lanes-Framework.pdf',
-      reply_to: 'traffickickssales@gmail.com'
+      reply_to: 'info@lifeheadquarters.co'
     })
     .then(() => {
       btn.textContent = '✓ Check your inbox!';
